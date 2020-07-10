@@ -124,7 +124,7 @@
                 "deprecated": false
             }
         },
-        "/inventory/5/stocks": {
+        "/inventory/{inventory_id}/stocks": {
             "post": {
                 "tags": [
                     "Inventory"
@@ -245,7 +245,7 @@
                 "deprecated": false
             }
         },
-        "/customers/1/orders/39/last_shipment": {
+        "/customers/{customer_id}/orders/{order_id}/last_shipment": {
             "get": {
                 "tags": [
                     "Orders"
@@ -282,7 +282,7 @@
                 "deprecated": false
             }
         },
-        "/customers/1/orders/39/shipments": {
+        "/customers/{customer_id}/orders/{order_id}/shipments": {
             "get": {
                 "tags": [
                     "Orders"
@@ -319,7 +319,7 @@
                 "deprecated": false
             }
         },
-        "/customers/1/orders/16/auto_ship": {
+        "/customers/{customer_id}/orders/{order_id}/auto_ship": {
             "post": {
                 "tags": [
                     "Orders"
@@ -359,7 +359,7 @@
                 "deprecated": false
             }
         },
-        "/customers/1/orders/21": {
+        "/customers/{customer_id}/orders/{order_id}": {
             "patch": {
                 "tags": [
                     "Orders"
@@ -426,7 +426,7 @@
                 "deprecated": false
             }
         },
-        "/customers/1/orders": {
+        "/customers/{customer_id}/orders": {
             "post": {
                 "tags": [
                     "Orders"
@@ -680,7 +680,7 @@
                 "deprecated": false
             }
         },
-        "/customers/1": {
+        "/customers/{customer_id}": {
             "get": {
                 "tags": [
                     "Customers"
@@ -717,7 +717,7 @@
                 "deprecated": false
             }
         },
-        "/customers/17": {
+        "/customers/{customer_id}": {
             "patch": {
                 "tags": [
                     "Customers"
@@ -831,7 +831,7 @@
                 "deprecated": false
             }
         },
-        "/vendors/1": {
+        "/vendors/{vendor_id}": {
             "get": {
                 "tags": [
                     "Vendors"
