@@ -125,6 +125,7 @@ app.get('/openapi', function(req, res) {
 	// 	});
 	// });
 });
+app.use('/source/images/logo.png', express.static(path.join(__dirname, 'source', 'images', 'logo.png')));
 app.use("/", express.static(shinsDir));
 
 var myport = process.env.PORT || 5678;
