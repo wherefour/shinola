@@ -1,1401 +1,1285 @@
 {
-  "openapi": "3.0.0",
-  "info": {
-    "title": "Wherefour API v1.0 (Documented)",
-    "description": "",
-    "contact": {},
-    "version": "1.0"
-  },
-  "servers": [
-    {
-      "url": "http://localhost:3000/api/v1",
-      "variables": {}
-    }
-  ],
-  "paths": {
-    "/inventory/last_adjustment": {
-      "get": {
-        "tags": [
-          "Inventory"
-        ],
-        "summary": "Last stock lot change",
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Wherefour API",
         "description": "",
-        "operationId": "Laststocklotchange",
-        "parameters": [
-          {
-            "name": "Content-Type",
-            "in": "header",
-            "description": "",
-            "required": true,
-            "style": "simple",
-            "schema": {
-              "type": "string",
-              "example": "application/json"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {},
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "object"
-                }
-              }
-            }
-          }
-        },
-        "deprecated": false
-      }
+        "contact": {},
+        "version": "1.0"
     },
-    "/inventory/": {
-      "get": {
-        "tags": [
-          "Inventory"
-        ],
-        "summary": "List inventory items",
-        "description": "",
-        "operationId": "Listinventoryitems",
-        "parameters": [
-          {
-            "name": "Content-Type",
-            "in": "header",
-            "description": "",
-            "required": true,
-            "style": "simple",
-            "schema": {
-              "type": "string",
-              "example": "application/json"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {},
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "object"
-                }
-              }
-            }
-          }
-        },
-        "deprecated": false
-      }
-    },
-    "/inventory/search": {
-      "get": {
-        "tags": [
-          "Inventory"
-        ],
-        "summary": "Search for inventory item",
-        "description": "",
-        "operationId": "Searchforinventoryitem",
-        "parameters": [
-          {
-            "name": "Content-Type",
-            "in": "header",
-            "description": "",
-            "required": true,
-            "style": "simple",
-            "schema": {
-              "type": "string",
-              "example": "application/json"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {},
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "object"
-                }
-              }
-            }
-          }
-        },
-        "deprecated": false
-      }
-    },
-    "/inventory/5/stocks": {
-      "post": {
-        "tags": [
-          "Inventory"
-        ],
-        "summary": "Add a stock lot",
-        "description": "",
-        "operationId": "Addastocklot",
-        "parameters": [],
-        "requestBody": {
-          "description": "",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/AddastocklotRequest"
-              },
-              "example": {
-                "location_id": 1,
-                "lot_code": "1234",
-                "barcode": null,
-                "details": "New",
-                "note": "This is a note!",
-                "cost": "100.0",
-                "vendor_id": 1,
-                "expiration_date": "4/1/20",
-                "base_count": "100.0"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {},
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "object"
-                }
-              }
-            }
-          }
-        },
-        "deprecated": false
-      }
-    },
-    "/shipments": {
-      "get": {
-        "tags": [
-          "Shipments"
-        ],
-        "summary": "List shipments",
-        "description": "",
-        "operationId": "Listshipments",
-        "parameters": [
-          {
-            "name": "Content-Type",
-            "in": "header",
-            "description": "",
-            "required": true,
-            "style": "simple",
-            "schema": {
-              "type": "string",
-              "example": "application/json"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {},
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "object"
-                }
-              }
-            }
-          }
-        },
-        "deprecated": false
-      }
-    },
-    "/orders": {
-      "get": {
-        "tags": [
-          "Orders"
-        ],
-        "summary": "List orders",
-        "description": "",
-        "operationId": "Listorders",
-        "parameters": [
-          {
-            "name": "Content-Type",
-            "in": "header",
-            "description": "",
-            "required": true,
-            "style": "simple",
-            "schema": {
-              "type": "string",
-              "example": "application/json"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {},
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "object"
-                }
-              }
-            }
-          }
-        },
-        "deprecated": false
-      }
-    },
-    "/customers/1/orders/39/last_shipment": {
-      "get": {
-        "tags": [
-          "Orders"
-        ],
-        "summary": "Get last shipment",
-        "description": "",
-        "operationId": "Getlastshipment",
-        "parameters": [
-          {
-            "name": "Content-Type",
-            "in": "header",
-            "description": "",
-            "required": true,
-            "style": "simple",
-            "schema": {
-              "type": "string",
-              "example": "application/json"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {},
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "object"
-                }
-              }
-            }
-          }
-        },
-        "deprecated": false
-      }
-    },
-    "/customers/1/orders/39/shipments": {
-      "get": {
-        "tags": [
-          "Orders"
-        ],
-        "summary": "List shipments",
-        "description": "",
-        "operationId": "GetListshipments",
-        "parameters": [
-          {
-            "name": "Content-Type",
-            "in": "header",
-            "description": "",
-            "required": true,
-            "style": "simple",
-            "schema": {
-              "type": "string",
-              "example": "application/json"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {},
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "object"
-                }
-              }
-            }
-          }
-        },
-        "deprecated": false
-      }
-    },
-    "/customers/1/orders/16/auto_ship": {
-      "post": {
-        "tags": [
-          "Orders"
-        ],
-        "summary": "Auto Ship",
-        "description": "",
-        "operationId": "AutoShip",
-        "parameters": [],
-        "requestBody": {
-          "description": "",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/AutoShipRequest"
-              },
-              "example": {
-                "tracking_number": "123456",
-                "delivery_method": "UPS Ground"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {},
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "object"
-                }
-              }
-            }
-          }
-        },
-        "deprecated": false
-      }
-    },
-    "/customers/1/orders/21": {
-      "patch": {
-        "tags": [
-          "Orders"
-        ],
-        "summary": "Orders - update an order",
-        "description": "",
-        "operationId": "Orders-updateanorder",
-        "parameters": [],
-        "requestBody": {
-          "description": "",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Orders-updateanorderRequest"
-              },
-              "example": {
-                "order_number": "SO100",
-                "order_date": "3/1/20",
-                "deliver_date": "3/15/20",
-                "produce_date": "3/2/20",
-                "payment_term_id": null,
-                "status": "open",
-                "salesperson_id": null,
-                "payment_terms": null,
-                "delivery_method_id": 1,
-                "instructions": null,
-                "subtotal": 100.0,
-                "discount": 0.0,
-                "tax": 0.0,
-                "shipping": 0.0,
-                "total": 0.0,
-                "order_items_attributes": [
-                  {
-                    "inventory_id": 3,
-                    "count": 0.0,
-                    "unit_price": 0.0,
-                    "override_unit_price": 0.0
-                  },
-                  {
-                    "inventory_id": 4,
-                    "count": 0.0,
-                    "unit_price": 0.0,
-                    "override_unit_price": 0.0
-                  }
-                ]
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {},
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "object"
-                }
-              }
-            }
-          }
-        },
-        "deprecated": false
-      }
-    },
-    "/customers/1/orders": {
-      "post": {
-        "tags": [
-          "Orders"
-        ],
-        "summary": "Orders - create an order",
-        "description": "",
-        "operationId": "Orders-createanorder",
-        "parameters": [],
-        "requestBody": {
-          "description": "",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Orders-createanorderRequest"
-              },
-              "example": {
-                "customer_id": 1,
-                "order_number": "SO100",
-                "order_date": "3/1/20",
-                "deliver_date": "3/15/20",
-                "produce_date": "3/2/20",
-                "payment_term_id": null,
-                "status": "open",
-                "salesperson_id": null,
-                "payment_terms": null,
-                "delivery_method_id": 1,
-                "instructions": null,
-                "subtotal": 100.0,
-                "discount": 0.0,
-                "tax": 0.0,
-                "shipping": 0.0,
-                "total": 0.0,
-                "order_items_attributes": [
-                  {
-                    "inventory_id": 3,
-                    "count": 0.0,
-                    "unit_price": 0.0,
-                    "override_unit_price": 0.0
-                  },
-                  {
-                    "inventory_id": 4,
-                    "count": 0.0,
-                    "unit_price": 0.0,
-                    "override_unit_price": 0.0
-                  }
-                ]
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {},
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "object"
-                }
-              }
-            }
-          }
-        },
-        "deprecated": false
-      }
-    },
-    "/customers/": {
-      "get": {
-        "tags": [
-          "Customers"
-        ],
-        "summary": "List customers",
-        "description": "",
-        "operationId": "Listcustomers",
-        "parameters": [
-          {
-            "name": "Content-Type",
-            "in": "header",
-            "description": "",
-            "required": true,
-            "style": "simple",
-            "schema": {
-              "type": "string",
-              "example": "application/json"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {},
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "object"
-                }
-              }
-            }
-          }
-        },
-        "deprecated": false
-      },
-      "post": {
-        "tags": [
-          "Customers"
-        ],
-        "summary": "Create a customer",
-        "description": "",
-        "operationId": "Createacustomer",
-        "parameters": [],
-        "requestBody": {
-          "description": "",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateacustomerRequest"
-              },
-              "example": {
-                "customer": {
-                  "first_name": "John",
-                  "middle_name": null,
-                  "last_name": "Smith",
-                  "display_name": "John Smith",
-                  "email": "test@example.com",
-                  "phone": "555-1212",
-                  "mobile": "555-2222",
-                  "fax": "555-3333",
-                  "website": "https://website.com",
-                  "note": "This is a customer note.",
-                  "custom_field_1": null,
-                  "custom_field_2": null,
-                  "custom_field_3": null,
-                  "custom_field_4": null,
-                  "business_license_number": "123",
-                  "billing_address_attributes": {
-                    "line1": "123 Main",
-                    "line2": null,
-                    "line3": null,
-                    "line4": null,
-                    "line5": null,
-                    "city": null,
-                    "country_subdivision_code": null,
-                    "postal_code": null,
-                    "country": null
-                  },
-                  "shipping_address_attributes": {
-                    "line1": "555 Main",
-                    "line2": null,
-                    "line3": null,
-                    "line4": null,
-                    "line5": null,
-                    "city": null,
-                    "country_subdivision_code": null,
-                    "postal_code": null,
-                    "country": null
-                  }
-                }
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {},
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "object"
-                }
-              }
-            }
-          }
-        },
-        "deprecated": false
-      }
-    },
-    "/customers/search": {
-      "get": {
-        "tags": [
-          "Customers"
-        ],
-        "summary": "Search for customer",
-        "description": "",
-        "operationId": "Searchforcustomer",
-        "parameters": [
-          {
-            "name": "Content-Type",
-            "in": "header",
-            "description": "",
-            "required": true,
-            "style": "simple",
-            "schema": {
-              "type": "string",
-              "example": "application/json"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {},
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "object"
-                }
-              }
-            }
-          }
-        },
-        "deprecated": false
-      }
-    },
-    "/customers/kinds": {
-      "get": {
-        "tags": [
-          "Customers"
-        ],
-        "summary": "List customer kinds",
-        "description": "",
-        "operationId": "Listcustomerkinds",
-        "parameters": [
-          {
-            "name": "Content-Type",
-            "in": "header",
-            "description": "",
-            "required": true,
-            "style": "simple",
-            "schema": {
-              "type": "string",
-              "example": "multipart/form-data"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {},
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "object"
-                }
-              }
-            }
-          }
-        },
-        "deprecated": false
-      }
-    },
-    "/customers/1": {
-      "get": {
-        "tags": [
-          "Customers"
-        ],
-        "summary": "Get customer",
-        "description": "",
-        "operationId": "Getcustomer",
-        "parameters": [
-          {
-            "name": "Content-Type",
-            "in": "header",
-            "description": "",
-            "required": true,
-            "style": "simple",
-            "schema": {
-              "type": "string",
-              "example": "application/json"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {},
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "object"
-                }
-              }
-            }
-          }
-        },
-        "deprecated": false
-      }
-    },
-    "/customers/17": {
-      "patch": {
-        "tags": [
-          "Customers"
-        ],
-        "summary": "Update a customer",
-        "description": "",
-        "operationId": "Updateacustomer",
-        "parameters": [],
-        "requestBody": {
-          "description": "",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateacustomerRequest"
-              },
-              "example": {
-                "customer": {
-                  "first_name": "John",
-                  "middle_name": null,
-                  "last_name": "Smith",
-                  "display_name": "John A Smith",
-                  "email": "test@example.com",
-                  "phone": "555-1212",
-                  "mobile": "555-2222",
-                  "fax": "555-3333",
-                  "website": "https://website.com",
-                  "note": "This is a customer note.",
-                  "custom_field_1": null,
-                  "custom_field_2": null,
-                  "custom_field_3": null,
-                  "custom_field_4": null,
-                  "business_license_number": "123",
-                  "billing_address_attributes": {
-                    "line1": "123 Main",
-                    "line2": null,
-                    "line3": null,
-                    "line4": null,
-                    "line5": null,
-                    "city": null,
-                    "country_subdivision_code": null,
-                    "postal_code": null,
-                    "country": null
-                  },
-                  "shipping_address_attributes": {
-                    "line1": "555 Main",
-                    "line2": null,
-                    "line3": null,
-                    "line4": null,
-                    "line5": null,
-                    "city": null,
-                    "country_subdivision_code": null,
-                    "postal_code": null,
-                    "country": null
-                  }
-                }
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {},
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "object"
-                }
-              }
-            }
-          }
-        },
-        "deprecated": false
-      }
-    },
-    "/purchases": {
-      "get": {
-        "tags": [
-          "Purchases"
-        ],
-        "summary": "List purchases",
-        "description": "",
-        "operationId": "Listpurchases",
-        "parameters": [
-          {
-            "name": "Content-Type",
-            "in": "header",
-            "description": "",
-            "required": true,
-            "style": "simple",
-            "schema": {
-              "type": "string",
-              "example": "application/json"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {},
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "object"
-                }
-              }
-            }
-          }
-        },
-        "deprecated": false
-      }
-    },
-    "/vendors/1": {
-      "get": {
-        "tags": [
-          "Vendors"
-        ],
-        "summary": "Get vendor",
-        "description": "",
-        "operationId": "Getvendor",
-        "parameters": [
-          {
-            "name": "Content-Type",
-            "in": "header",
-            "description": "",
-            "required": true,
-            "style": "simple",
-            "schema": {
-              "type": "string",
-              "example": "application/json"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {},
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "object"
-                }
-              }
-            }
-          }
-        },
-        "deprecated": false
-      }
-    },
-    "/vendors/search": {
-      "get": {
-        "tags": [
-          "Vendors"
-        ],
-        "summary": "Search for a vendor",
-        "description": "",
-        "operationId": "Searchforavendor",
-        "parameters": [
-          {
-            "name": "Content-Type",
-            "in": "header",
-            "description": "",
-            "required": true,
-            "style": "simple",
-            "schema": {
-              "type": "string",
-              "example": "application/json"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {},
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "object"
-                }
-              }
-            }
-          }
-        },
-        "deprecated": false
-      }
-    },
-    "/settings/delivery_methods": {
-      "get": {
-        "tags": [
-          "Vendors"
-        ],
-        "summary": "List delivery methods",
-        "description": "",
-        "operationId": "Listdeliverymethods",
-        "parameters": [
-          {
-            "name": "Content-Type",
-            "in": "header",
-            "description": "",
-            "required": true,
-            "style": "simple",
-            "schema": {
-              "type": "string",
-              "example": "application/json"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {},
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "object"
-                }
-              }
-            }
-          }
-        },
-        "deprecated": false
-      }
-    }
-  },
-  "components": {
-    "schemas": {
-      "AddastocklotRequest": {
-        "title": "AddastocklotRequest",
-        "required": [
-          "location_id",
-          "lot_code",
-          "barcode",
-          "details",
-          "note",
-          "cost",
-          "vendor_id",
-          "expiration_date",
-          "base_count"
-        ],
-        "type": "object",
-        "properties": {
-          "location_id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "lot_code": {
-            "type": "string"
-          },
-          "barcode": {
-            "type": "string",
-            "nullable": true
-          },
-          "details": {
-            "type": "string"
-          },
-          "note": {
-            "type": "string"
-          },
-          "cost": {
-            "type": "string"
-          },
-          "vendor_id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "expiration_date": {
-            "type": "string"
-          },
-          "base_count": {
-            "type": "string"
-          }
-        },
-        "example": {
-          "location_id": 1,
-          "lot_code": "1234",
-          "barcode": null,
-          "details": "New",
-          "note": "This is a note!",
-          "cost": "100.0",
-          "vendor_id": 1,
-          "expiration_date": "4/1/20",
-          "base_count": "100.0"
+    "servers": [
+        {
+            "url": "https://my.wherefour.com/api/v1",
+            "variables": {}
         }
-      },
-      "AutoShipRequest": {
-        "title": "AutoShipRequest",
-        "required": [
-          "tracking_number",
-          "delivery_method"
-        ],
-        "type": "object",
-        "properties": {
-          "tracking_number": {
-            "type": "string"
-          },
-          "delivery_method": {
-            "type": "string"
-          }
+    ],
+    "paths": {
+        "/inventory/last_adjustment": {
+            "get": {
+                "tags": [
+                    "Inventory"
+                ],
+                "summary": "Last stock lot change",
+                "description": "",
+                "operationId": "Last stock lot change",
+                "parameters": [
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "style": "simple",
+                        "schema": {
+                            "type": "string",
+                            "example": "application/json"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "headers": {},
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
         },
-        "example": {
-          "tracking_number": "123456",
-          "delivery_method": "UPS Ground"
-        }
-      },
-      "Orders-updateanorderRequest": {
-        "title": "Orders-updateanorderRequest",
-        "required": [
-          "order_number",
-          "order_date",
-          "deliver_date",
-          "produce_date",
-          "payment_term_id",
-          "status",
-          "salesperson_id",
-          "payment_terms",
-          "delivery_method_id",
-          "instructions",
-          "subtotal",
-          "discount",
-          "tax",
-          "shipping",
-          "total",
-          "order_items_attributes"
-        ],
-        "type": "object",
-        "properties": {
-          "order_number": {
-            "type": "string"
-          },
-          "order_date": {
-            "type": "string"
-          },
-          "deliver_date": {
-            "type": "string"
-          },
-          "produce_date": {
-            "type": "string"
-          },
-          "payment_term_id": {
-            "type": "string",
-            "nullable": true
-          },
-          "status": {
-            "type": "string"
-          },
-          "salesperson_id": {
-            "type": "string",
-            "nullable": true
-          },
-          "payment_terms": {
-            "type": "string",
-            "nullable": true
-          },
-          "delivery_method_id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "instructions": {
-            "type": "string",
-            "nullable": true
-          },
-          "subtotal": {
-            "type": "number"
-          },
-          "discount": {
-            "type": "number"
-          },
-          "tax": {
-            "type": "number"
-          },
-          "shipping": {
-            "type": "number"
-          },
-          "total": {
-            "type": "number"
-          },
-          "order_items_attributes": {
-            "type": "array",
-            "items": {
-              "type": "object"
+        "/inventory/": {
+            "get": {
+                "tags": [
+                    "Inventory"
+                ],
+                "summary": "List inventory items",
+                "description": "",
+                "operationId": "List inventory items",
+                "parameters": [
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "style": "simple",
+                        "schema": {
+                            "type": "string",
+                            "example": "application/json"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "headers": {},
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/inventory/search": {
+            "get": {
+                "tags": [
+                    "Inventory"
+                ],
+                "summary": "Search for inventory item",
+                "description": "",
+                "operationId": "Search for an inventory item",
+                "parameters": [
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "style": "simple",
+                        "schema": {
+                            "type": "string",
+                            "example": "application/json"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "headers": {},
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/inventory/5/stocks": {
+            "post": {
+                "tags": [
+                    "Inventory"
+                ],
+                "summary": "Add a stock lot",
+                "description": "",
+                "operationId": "Add a stock lot",
+                "parameters": [],
+                "requestBody": {
+                    "description": "",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AddastocklotRequest"
+                            },
+                            "example": {
+                                "location_id": 1,
+                                "lot_code": "1234",
+                                "barcode": null,
+                                "details": "New",
+                                "note": "This is a note!",
+                                "cost": "100.0",
+                                "vendor_id": 1,
+                                "expiration_date": "4/1/20",
+                                "base_count": "100.0"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "headers": {},
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/shipments": {
+            "get": {
+                "tags": [
+                    "Shipments"
+                ],
+                "summary": "List shipments",
+                "description": "",
+                "operationId": "List shipments",
+                "parameters": [
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "style": "simple",
+                        "schema": {
+                            "type": "string",
+                            "example": "application/json"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "headers": {},
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/orders": {
+            "get": {
+                "tags": [
+                    "Orders"
+                ],
+                "summary": "List orders",
+                "description": "",
+                "operationId": "List orders",
+                "parameters": [
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "style": "simple",
+                        "schema": {
+                            "type": "string",
+                            "example": "application/json"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "headers": {},
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/customers/1/orders/39/last_shipment": {
+            "get": {
+                "tags": [
+                    "Orders"
+                ],
+                "summary": "Get last shipment",
+                "description": "",
+                "operationId": "Get last shipment",
+                "parameters": [
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "style": "simple",
+                        "schema": {
+                            "type": "string",
+                            "example": "application/json"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "headers": {},
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/customers/1/orders/39/shipments": {
+            "get": {
+                "tags": [
+                    "Orders"
+                ],
+                "summary": "List shipments",
+                "description": "",
+                "operationId": "List shipments",
+                "parameters": [
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "style": "simple",
+                        "schema": {
+                            "type": "string",
+                            "example": "application/json"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "headers": {},
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/customers/1/orders/16/auto_ship": {
+            "post": {
+                "tags": [
+                    "Orders"
+                ],
+                "summary": "Auto Ship",
+                "description": "",
+                "operationId": "Auto ship",
+                "parameters": [],
+                "requestBody": {
+                    "description": "",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AutoShipRequest"
+                            },
+                            "example": {
+                                "tracking_number": "123456",
+                                "delivery_method": "UPS Ground"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "headers": {},
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/customers/1/orders/21": {
+            "patch": {
+                "tags": [
+                    "Orders"
+                ],
+                "summary": "Update an order",
+                "description": "",
+                "operationId": "Update an order",
+                "parameters": [],
+                "requestBody": {
+                    "description": "",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Orders-updateanorderRequest"
+                            },
+                            "example": {
+                                "order_number": "SO100",
+                                "order_date": "3/1/20",
+                                "deliver_date": "3/15/20",
+                                "produce_date": "3/2/20",
+                                "payment_term_id": null,
+                                "status": "open",
+                                "salesperson_id": null,
+                                "payment_terms": null,
+                                "delivery_method_id": 1,
+                                "instructions": null,
+                                "subtotal": 100,
+                                "discount": 0,
+                                "tax": 0,
+                                "shipping": 0,
+                                "total": 0,
+                                "order_items_attributes": [
+                                    {
+                                        "inventory_id": 3,
+                                        "count": 0,
+                                        "unit_price": 0,
+                                        "override_unit_price": 0
+                                    },
+                                    {
+                                        "inventory_id": 4,
+                                        "count": 0,
+                                        "unit_price": 0,
+                                        "override_unit_price": 0
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "headers": {},
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/customers/1/orders": {
+            "post": {
+                "tags": [
+                    "Orders"
+                ],
+                "summary": "Create an order",
+                "description": "",
+                "operationId": "Create an order",
+                "parameters": [],
+                "requestBody": {
+                    "description": "",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Orders-createanorderRequest"
+                            },
+                            "example": {
+                                "customer_id": 1,
+                                "order_number": "SO100",
+                                "order_date": "3/1/20",
+                                "deliver_date": "3/15/20",
+                                "produce_date": "3/2/20",
+                                "payment_term_id": null,
+                                "status": "open",
+                                "salesperson_id": null,
+                                "payment_terms": null,
+                                "delivery_method_id": 1,
+                                "instructions": null,
+                                "subtotal": 100,
+                                "discount": 0,
+                                "tax": 0,
+                                "shipping": 0,
+                                "total": 0,
+                                "order_items_attributes": [
+                                    {
+                                        "inventory_id": 3,
+                                        "count": 0,
+                                        "unit_price": 0,
+                                        "override_unit_price": 0
+                                    },
+                                    {
+                                        "inventory_id": 4,
+                                        "count": 0,
+                                        "unit_price": 0,
+                                        "override_unit_price": 0
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "headers": {},
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/customers/": {
+            "get": {
+                "tags": [
+                    "Customers"
+                ],
+                "summary": "List customers",
+                "description": "",
+                "operationId": "List customers",
+                "parameters": [
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "style": "simple",
+                        "schema": {
+                            "type": "string",
+                            "example": "application/json"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "headers": {},
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
             },
+            "post": {
+                "tags": [
+                    "Customers"
+                ],
+                "summary": "Create a customer",
+                "description": "",
+                "operationId": "Create a customer",
+                "parameters": [],
+                "requestBody": {
+                    "description": "",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateacustomerRequest"
+                            },
+                            "example": {
+                                "customer": {
+                                    "first_name": "John",
+                                    "middle_name": null,
+                                    "last_name": "Smith",
+                                    "display_name": "John Smith",
+                                    "email": "test@example.com",
+                                    "phone": "555-1212",
+                                    "mobile": "555-2222",
+                                    "fax": "555-3333",
+                                    "website": "https://website.com",
+                                    "note": "This is a customer note.",
+                                    "custom_field_1": null,
+                                    "custom_field_2": null,
+                                    "custom_field_3": null,
+                                    "custom_field_4": null,
+                                    "business_license_number": "123",
+                                    "billing_address_attributes": {
+                                        "line1": "123 Main",
+                                        "line2": null,
+                                        "line3": null,
+                                        "line4": null,
+                                        "line5": null,
+                                        "city": null,
+                                        "country_subdivision_code": null,
+                                        "postal_code": null,
+                                        "country": null
+                                    },
+                                    "shipping_address_attributes": {
+                                        "line1": "555 Main",
+                                        "line2": null,
+                                        "line3": null,
+                                        "line4": null,
+                                        "line5": null,
+                                        "city": null,
+                                        "country_subdivision_code": null,
+                                        "postal_code": null,
+                                        "country": null
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "headers": {},
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/customers/search": {
+            "get": {
+                "tags": [
+                    "Customers"
+                ],
+                "summary": "Search for customer",
+                "description": "",
+                "operationId": "Search for a customer",
+                "parameters": [
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "style": "simple",
+                        "schema": {
+                            "type": "string",
+                            "example": "application/json"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "headers": {},
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/customers/kinds": {
+            "get": {
+                "tags": [
+                    "Customers"
+                ],
+                "summary": "List customer kinds",
+                "description": "",
+                "operationId": "List customer kinds",
+                "parameters": [
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "style": "simple",
+                        "schema": {
+                            "type": "string",
+                            "example": "multipart/form-data"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "headers": {},
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/customers/1": {
+            "get": {
+                "tags": [
+                    "Customers"
+                ],
+                "summary": "Get customer",
+                "description": "",
+                "operationId": "Lookup a customer",
+                "parameters": [
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "style": "simple",
+                        "schema": {
+                            "type": "string",
+                            "example": "application/json"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "headers": {},
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/customers/17": {
+            "patch": {
+                "tags": [
+                    "Customers"
+                ],
+                "summary": "Update a customer",
+                "description": "",
+                "operationId": "Update a customer",
+                "parameters": [],
+                "requestBody": {
+                    "description": "",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdateacustomerRequest"
+                            },
+                            "example": {
+                                "customer": {
+                                    "first_name": "John",
+                                    "middle_name": null,
+                                    "last_name": "Smith",
+                                    "display_name": "John A Smith",
+                                    "email": "test@example.com",
+                                    "phone": "555-1212",
+                                    "mobile": "555-2222",
+                                    "fax": "555-3333",
+                                    "website": "https://website.com",
+                                    "note": "This is a customer note.",
+                                    "custom_field_1": null,
+                                    "custom_field_2": null,
+                                    "custom_field_3": null,
+                                    "custom_field_4": null,
+                                    "business_license_number": "123",
+                                    "billing_address_attributes": {
+                                        "line1": "123 Main",
+                                        "line2": null,
+                                        "line3": null,
+                                        "line4": null,
+                                        "line5": null,
+                                        "city": null,
+                                        "country_subdivision_code": null,
+                                        "postal_code": null,
+                                        "country": null
+                                    },
+                                    "shipping_address_attributes": {
+                                        "line1": "555 Main",
+                                        "line2": null,
+                                        "line3": null,
+                                        "line4": null,
+                                        "line5": null,
+                                        "city": null,
+                                        "country_subdivision_code": null,
+                                        "postal_code": null,
+                                        "country": null
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "headers": {},
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/purchases": {
+            "get": {
+                "tags": [
+                    "Purchases"
+                ],
+                "summary": "List purchases",
+                "description": "",
+                "operationId": "List purchases",
+                "parameters": [
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "style": "simple",
+                        "schema": {
+                            "type": "string",
+                            "example": "application/json"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "headers": {},
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/vendors/1": {
+            "get": {
+                "tags": [
+                    "Vendors"
+                ],
+                "summary": "Get vendor",
+                "description": "",
+                "operationId": "Lookup a vendor",
+                "parameters": [
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "style": "simple",
+                        "schema": {
+                            "type": "string",
+                            "example": "application/json"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "headers": {},
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/vendors/search": {
+            "get": {
+                "tags": [
+                    "Vendors"
+                ],
+                "summary": "Search for a vendor",
+                "description": "",
+                "operationId": "Search for a vendor",
+                "parameters": [
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "style": "simple",
+                        "schema": {
+                            "type": "string",
+                            "example": "application/json"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "headers": {},
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/settings/delivery_methods": {
+            "get": {
+                "tags": [
+                    "Vendors"
+                ],
+                "summary": "List delivery methods",
+                "description": "",
+                "operationId": "List delivery methods",
+                "parameters": [
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "style": "simple",
+                        "schema": {
+                            "type": "string",
+                            "example": "application/json"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "headers": {},
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Add stock lot": {
+                "title": "Add a stock lot",
+                "required": [
+                    "location_id",
+                    "lot_code",
+                    "barcode",
+                    "details",
+                    "note",
+                    "cost",
+                    "vendor_id",
+                    "expiration_date",
+                    "base_count"
+                ],
+                "type": "object",
+                "properties": {
+                    "location_id": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "lot_code": {
+                        "type": "string"
+                    },
+                    "barcode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "details": {
+                        "type": "string"
+                    },
+                    "note": {
+                        "type": "string"
+                    },
+                    "cost": {
+                        "type": "string"
+                    },
+                    "vendor_id": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "expiration_date": {
+                        "type": "string"
+                    },
+                    "base_count": {
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "location_id": 1,
+                    "lot_code": "1234",
+                    "barcode": null,
+                    "details": "New",
+                    "note": "This is a note!",
+                    "cost": "100.0",
+                    "vendor_id": 1,
+                    "expiration_date": "4/1/20",
+                    "base_count": "100.0"
+                }
+            },
+            "Auto ship": {
+                "title": "Auto ship",
+                "required": [
+                    "tracking_number",
+                    "delivery_method"
+                ],
+                "type": "object",
+                "properties": {
+                    "tracking_number": {
+                        "type": "string"
+                    },
+                    "delivery_method": {
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "tracking_number": "123456",
+                    "delivery_method": "UPS Ground"
+                }
+            },
+            "Update an order": {
+                "title": "Update an order",
+                "required": [
+                    "order_number",
+                    "order_date",
+                    "deliver_date",
+                    "produce_date",
+                    "payment_term_id",
+                    "status",
+                    "salesperson_id",
+                    "payment_terms",
+                    "delivery_method_id",
+                    "instructions",
+                    "subtotal",
+                    "discount",
+                    "tax",
+                    "shipping",
+                    "total",
+                    "order_items_attributes"
+                ],
+                "type": "object",
+                "properties": {
+                    "order_number": {
+                        "type": "string"
+                    },
+                    "order_date": {
+                        "type": "string"
+                    },
+                    "deliver_date": {
+                        "type": "string"
+                    },
+                    "produce_date": {
+                        "type": "string"
+                    },
+                    "payment_term_id": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "status": {
+                        "type": "string"
+                    },
+                    "salesperson_id": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "payment_terms": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "delivery_method_id": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "instructions": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "subtotal": {
+                        "type": "number"
+                    },
+                    "discount": {
+                        "type": "number"
+                    },
+                    "tax": {
+                        "type": "number"
+                    },
+                    "shipping": {
+                        "type": "number"
+                    },
+                    "total": {
+                        "type": "number"
+                    },
+                    "order_items_attributes": {
+                        "type": "array",
+                        "items": {
+                            "type": "object"
+                        },
+                        "description": ""
+                    }
+                },
+                "example": {
+                    "order_number": "SO100",
+                    "order_date": "3/1/20",
+                    "deliver_date": "3/15/20",
+                    "produce_date": "3/2/20",
+                    "payment_term_id": null,
+                    "status": "open",
+                    "salesperson_id": null,
+                    "payment_terms": null,
+                    "delivery_method_id": 1,
+                    "instructions": null,
+                    "subtotal": 100,
+                    "discount": 0,
+                    "tax": 0,
+                    "shipping": 0,
+                    "total": 0,
+                    "order_items_attributes": [
+                        {
+                            "inventory_id": 3,
+                            "count": 0,
+                            "unit_price": 0,
+                            "override_unit_price": 0
+                        },
+                        {
+                            "inventory_id": 4,
+                            "count": 0,
+                            "unit_price": 0,
+                            "override_unit_price": 0
+                        }
+                    ]
+                }
+            },
+            "Create an order": {
+                "title": "Create a customer",
+                "required": [
+                    "customer"
+                ],
+                "type": "object",
+                "properties": {
+                    "customer": {
+                        "type": "object"
+                    }
+                },
+                "example": {
+                    "customer": {
+                        "first_name": "John",
+                        "middle_name": null,
+                        "last_name": "Smith",
+                        "display_name": "John Smith",
+                        "email": "test@example.com",
+                        "phone": "555-1212",
+                        "mobile": "555-2222",
+                        "fax": "555-3333",
+                        "website": "https://website.com",
+                        "note": "This is a customer note.",
+                        "custom_field_1": null,
+                        "custom_field_2": null,
+                        "custom_field_3": null,
+                        "custom_field_4": null,
+                        "business_license_number": "123",
+                        "billing_address_attributes": {
+                            "line1": "123 Main",
+                            "line2": null,
+                            "line3": null,
+                            "line4": null,
+                            "line5": null,
+                            "city": null,
+                            "country_subdivision_code": null,
+                            "postal_code": null,
+                            "country": null
+                        },
+                        "shipping_address_attributes": {
+                            "line1": "555 Main",
+                            "line2": null,
+                            "line3": null,
+                            "line4": null,
+                            "line5": null,
+                            "city": null,
+                            "country_subdivision_code": null,
+                            "postal_code": null,
+                            "country": null
+                        }
+                    }
+                }
+            },
+            "Update a customer": {
+                "title": "Update a customer",
+                "required": [
+                    "customer"
+                ],
+                "type": "object",
+                "properties": {
+                    "customer": {
+                        "type": "object"
+                    }
+                },
+                "example": {
+                    "customer": {
+                        "first_name": "John",
+                        "middle_name": null,
+                        "last_name": "Smith",
+                        "display_name": "John A Smith",
+                        "email": "test@example.com",
+                        "phone": "555-1212",
+                        "mobile": "555-2222",
+                        "fax": "555-3333",
+                        "website": "https://website.com",
+                        "note": "This is a customer note.",
+                        "custom_field_1": null,
+                        "custom_field_2": null,
+                        "custom_field_3": null,
+                        "custom_field_4": null,
+                        "business_license_number": "123",
+                        "billing_address_attributes": {
+                            "line1": "123 Main",
+                            "line2": null,
+                            "line3": null,
+                            "line4": null,
+                            "line5": null,
+                            "city": null,
+                            "country_subdivision_code": null,
+                            "postal_code": null,
+                            "country": null
+                        },
+                        "shipping_address_attributes": {
+                            "line1": "555 Main",
+                            "line2": null,
+                            "line3": null,
+                            "line4": null,
+                            "line5": null,
+                            "city": null,
+                            "country_subdivision_code": null,
+                            "postal_code": null,
+                            "country": null
+                        }
+                    }
+                }
+            }
+        },
+        "securitySchemes": {
+            "httpBasic": {
+                "type": "http",
+                "scheme": "basic"
+            }
+        },
+        "links": {},
+        "callbacks": {}
+    },
+    "security": [
+        {
+            "httpBasic": []
+        }
+    ],
+    "tags": [
+        {
+            "name": "Inventory",
             "description": ""
-          }
         },
-        "example": {
-          "order_number": "SO100",
-          "order_date": "3/1/20",
-          "deliver_date": "3/15/20",
-          "produce_date": "3/2/20",
-          "payment_term_id": null,
-          "status": "open",
-          "salesperson_id": null,
-          "payment_terms": null,
-          "delivery_method_id": 1,
-          "instructions": null,
-          "subtotal": 100.0,
-          "discount": 0.0,
-          "tax": 0.0,
-          "shipping": 0.0,
-          "total": 0.0,
-          "order_items_attributes": [
-            {
-              "inventory_id": 3,
-              "count": 0.0,
-              "unit_price": 0.0,
-              "override_unit_price": 0.0
-            },
-            {
-              "inventory_id": 4,
-              "count": 0.0,
-              "unit_price": 0.0,
-              "override_unit_price": 0.0
-            }
-          ]
-        }
-      },
-      "Orders-createanorderRequest": {
-        "title": "Orders-createanorderRequest",
-        "required": [
-          "customer_id",
-          "order_number",
-          "order_date",
-          "deliver_date",
-          "produce_date",
-          "payment_term_id",
-          "status",
-          "salesperson_id",
-          "payment_terms",
-          "delivery_method_id",
-          "instructions",
-          "subtotal",
-          "discount",
-          "tax",
-          "shipping",
-          "total",
-          "order_items_attributes"
-        ],
-        "type": "object",
-        "properties": {
-          "customer_id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "order_number": {
-            "type": "string"
-          },
-          "order_date": {
-            "type": "string"
-          },
-          "deliver_date": {
-            "type": "string"
-          },
-          "produce_date": {
-            "type": "string"
-          },
-          "payment_term_id": {
-            "type": "string",
-            "nullable": true
-          },
-          "status": {
-            "type": "string"
-          },
-          "salesperson_id": {
-            "type": "string",
-            "nullable": true
-          },
-          "payment_terms": {
-            "type": "string",
-            "nullable": true
-          },
-          "delivery_method_id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "instructions": {
-            "type": "string",
-            "nullable": true
-          },
-          "subtotal": {
-            "type": "number"
-          },
-          "discount": {
-            "type": "number"
-          },
-          "tax": {
-            "type": "number"
-          },
-          "shipping": {
-            "type": "number"
-          },
-          "total": {
-            "type": "number"
-          },
-          "order_items_attributes": {
-            "type": "array",
-            "items": {
-              "type": "object"
-            },
+        {
+            "name": "Shipments",
             "description": ""
-          }
         },
-        "example": {
-          "customer_id": 1,
-          "order_number": "SO100",
-          "order_date": "3/1/20",
-          "deliver_date": "3/15/20",
-          "produce_date": "3/2/20",
-          "payment_term_id": null,
-          "status": "open",
-          "salesperson_id": null,
-          "payment_terms": null,
-          "delivery_method_id": 1,
-          "instructions": null,
-          "subtotal": 100.0,
-          "discount": 0.0,
-          "tax": 0.0,
-          "shipping": 0.0,
-          "total": 0.0,
-          "order_items_attributes": [
-            {
-              "inventory_id": 3,
-              "count": 0.0,
-              "unit_price": 0.0,
-              "override_unit_price": 0.0
-            },
-            {
-              "inventory_id": 4,
-              "count": 0.0,
-              "unit_price": 0.0,
-              "override_unit_price": 0.0
-            }
-          ]
-        }
-      },
-      "CreateacustomerRequest": {
-        "title": "CreateacustomerRequest",
-        "required": [
-          "customer"
-        ],
-        "type": "object",
-        "properties": {
-          "customer": {
-            "type": "object"
-          }
+        {
+            "name": "Orders",
+            "description": ""
         },
-        "example": {
-          "customer": {
-            "first_name": "John",
-            "middle_name": null,
-            "last_name": "Smith",
-            "display_name": "John Smith",
-            "email": "test@example.com",
-            "phone": "555-1212",
-            "mobile": "555-2222",
-            "fax": "555-3333",
-            "website": "https://website.com",
-            "note": "This is a customer note.",
-            "custom_field_1": null,
-            "custom_field_2": null,
-            "custom_field_3": null,
-            "custom_field_4": null,
-            "business_license_number": "123",
-            "billing_address_attributes": {
-              "line1": "123 Main",
-              "line2": null,
-              "line3": null,
-              "line4": null,
-              "line5": null,
-              "city": null,
-              "country_subdivision_code": null,
-              "postal_code": null,
-              "country": null
-            },
-            "shipping_address_attributes": {
-              "line1": "555 Main",
-              "line2": null,
-              "line3": null,
-              "line4": null,
-              "line5": null,
-              "city": null,
-              "country_subdivision_code": null,
-              "postal_code": null,
-              "country": null
-            }
-          }
-        }
-      },
-      "UpdateacustomerRequest": {
-        "title": "UpdateacustomerRequest",
-        "required": [
-          "customer"
-        ],
-        "type": "object",
-        "properties": {
-          "customer": {
-            "type": "object"
-          }
+        {
+            "name": "Customers",
+            "description": ""
         },
-        "example": {
-          "customer": {
-            "first_name": "John",
-            "middle_name": null,
-            "last_name": "Smith",
-            "display_name": "John A Smith",
-            "email": "test@example.com",
-            "phone": "555-1212",
-            "mobile": "555-2222",
-            "fax": "555-3333",
-            "website": "https://website.com",
-            "note": "This is a customer note.",
-            "custom_field_1": null,
-            "custom_field_2": null,
-            "custom_field_3": null,
-            "custom_field_4": null,
-            "business_license_number": "123",
-            "billing_address_attributes": {
-              "line1": "123 Main",
-              "line2": null,
-              "line3": null,
-              "line4": null,
-              "line5": null,
-              "city": null,
-              "country_subdivision_code": null,
-              "postal_code": null,
-              "country": null
-            },
-            "shipping_address_attributes": {
-              "line1": "555 Main",
-              "line2": null,
-              "line3": null,
-              "line4": null,
-              "line5": null,
-              "city": null,
-              "country_subdivision_code": null,
-              "postal_code": null,
-              "country": null
-            }
-          }
+        {
+            "name": "Purchases",
+            "description": ""
+        },
+        {
+            "name": "Vendors",
+            "description": ""
         }
-      }
-    },
-    "securitySchemes": {
-      "httpBasic": {
-        "type": "http",
-        "scheme": "basic"
-      }
-    }
-  },
-  "security": [
-    {
-      "httpBasic": []
-    }
-  ],
-  "tags": [
-    {
-      "name": "Inventory",
-      "description": ""
-    },
-    {
-      "name": "Shipments",
-      "description": ""
-    },
-    {
-      "name": "Orders",
-      "description": ""
-    },
-    {
-      "name": "Customers",
-      "description": ""
-    },
-    {
-      "name": "Purchases",
-      "description": ""
-    },
-    {
-      "name": "Vendors",
-      "description": ""
-    }
-  ]
+    ]
 }
