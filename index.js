@@ -6,7 +6,7 @@ var bodyParser = require('body-parser');
 var yaml = require('js-yaml');
 
 var shins = require('shins/index.js');
-var shinsDir = shins.srcDir();
+var shinsDir = path.join(__dirname, 'node_modules', 'shins')
 var widdershins = require('widdershins');
 
 var fetch = require('./fetch.js');
@@ -87,9 +87,9 @@ app.get('/', function (req, res) {
 // 	});
 // });
 app.get('/openapi', function(req, res) {
-	var obj = parseJSON(wherefour_api);
+	var obj = wherefour_api;
 	var options = {};
-	options.loadedFrom = 'localhost';
+	options.loadedFrom = 'localhost/openapi';
 	res.set('Access-Control-Allow-Origin','*');
 	widdershins.convert(obj, options, function(err, md) {
 		if (typeof req.query.raw !== 'undefined') {
