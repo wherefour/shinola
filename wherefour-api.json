@@ -245,6 +245,80 @@
                 "deprecated": false
             }
         },
+        "/orders/{order_id}": {
+            "get": {
+                "tags": [
+                    "Orders"
+                ],
+                "summary": "Get an order",
+                "description": "",
+                "operationId": "Get an order",
+                "parameters": [
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "style": "simple",
+                        "schema": {
+                            "type": "string",
+                            "example": "application/json"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "headers": {},
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/orders/search": {
+            "get": {
+                "tags": [
+                    "Orders"
+                ],
+                "summary": "Search for an order",
+                "description": "",
+                "operationId": "Search for an order",
+                "parameters": [
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "description": "order_number",
+                        "required": true,
+                        "style": "simple",
+                        "schema": {
+                            "type": "string",
+                            "example": "application/json"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "headers": {},
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
         "/customers/{customer_id}/orders/{order_id}/last_shipment": {
             "get": {
                 "tags": [
@@ -324,7 +398,7 @@
                 "tags": [
                     "Orders"
                 ],
-                "summary": "Auto Ship",
+                "summary": "Automatically select stock lots to fulfill the specified order.",
                 "description": "",
                 "operationId": "Auto ship",
                 "parameters": [],
@@ -661,43 +735,6 @@
                         "schema": {
                             "type": "string",
                             "example": "multipart/form-data"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "headers": {},
-                        "content": {
-                            "text/plain": {
-                                "schema": {
-                                    "type": "object"
-                                }
-                            }
-                        }
-                    }
-                },
-                "deprecated": false
-            }
-        },
-        "/customers/{customer_id}": {
-            "get": {
-                "tags": [
-                    "Customers"
-                ],
-                "summary": "Get customer",
-                "description": "",
-                "operationId": "Lookup a customer",
-                "parameters": [
-                    {
-                        "name": "Content-Type",
-                        "in": "header",
-                        "description": "",
-                        "required": true,
-                        "style": "simple",
-                        "schema": {
-                            "type": "string",
-                            "example": "application/json"
                         }
                     }
                 ],
