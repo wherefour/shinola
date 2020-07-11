@@ -58,19 +58,7 @@
                 "summary": "Lists all inventory items. Results will be paginated.",
                 "description": "",
                 "operationId": "List inventory items",
-                "parameters": [
-                    {
-                        "name": "Content-Type",
-                        "in": "header",
-                        "description": "",
-                        "required": true,
-                        "style": "simple",
-                        "schema": {
-                            "type": "string",
-                            "example": "application/json"
-                        }
-                    }
-                ],
+                "parameters": [],
                 "responses": {
                     "200": {
                         "description": "",
@@ -92,15 +80,26 @@
                 "tags": [
                     "Inventory"
                 ],
-                "summary": "Search for inventory item, based on the inventory item name.",
+                "summary": "Search for inventory item, based on the closest match(s) to the provided SKU or inventory item name.",
                 "description": "",
                 "operationId": "Search for an inventory item",
                 "parameters": [
                     {
-                        "name": "Content-Type",
-                        "in": "header",
+                        "name": "sku",
+                        "in": "query",
                         "description": "",
-                        "required": true,
+                        "required": false,
+                        "style": "simple",
+                        "schema": {
+                            "type": "string",
+                            "example": "application/json"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
                         "style": "simple",
                         "schema": {
                             "type": "string",
@@ -132,7 +131,80 @@
                 "summary": "Add a new stock lot to the specific inventory item.",
                 "description": "",
                 "operationId": "Add a stock lot",
-                "parameters": [],
+                "parameters": [
+                    {
+                        "name": "location_id",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "lot_code",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "barcode",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "details",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "note",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "cost",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "vendor_id",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "expiration_date",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "base_count",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
                 "requestBody": {
                     "description": "",
                     "content": {
@@ -233,7 +305,8 @@
                         }
                     }
                 },
-                "deprecated": false
+                "deprecated": false,
+                "parameters": []
             }
         },
         "/shipments/search": {
@@ -279,19 +352,7 @@
                 "summary": "Lists all orders. Results will be paginated.",
                 "description": "",
                 "operationId": "List orders",
-                "parameters": [
-                    {
-                        "name": "Content-Type",
-                        "in": "header",
-                        "description": "",
-                        "required": true,
-                        "style": "simple",
-                        "schema": {
-                            "type": "string",
-                            "example": "application/json"
-                        }
-                    }
-                ],
+                "parameters": [],
                 "responses": {
                     "200": {
                         "description": "",
@@ -316,19 +377,7 @@
                 "summary": "Retrieve a specific order, based on the order ID.",
                 "description": "",
                 "operationId": "Get an order",
-                "parameters": [
-                    {
-                        "name": "Content-Type",
-                        "in": "header",
-                        "description": "",
-                        "required": true,
-                        "style": "simple",
-                        "schema": {
-                            "type": "string",
-                            "example": "application/json"
-                        }
-                    }
-                ],
+                "parameters": [],
                 "responses": {
                     "200": {
                         "description": "",
@@ -355,14 +404,11 @@
                 "operationId": "Search for an order",
                 "parameters": [
                     {
-                        "name": "Content-Type",
-                        "in": "header",
-                        "description": "order_number",
+                        "name": "order_number",
+                        "in": "query",
                         "required": true,
-                        "style": "simple",
                         "schema": {
-                            "type": "string",
-                            "example": "application/json"
+                            "type": "string"
                         }
                     }
                 ],
@@ -390,19 +436,7 @@
                 "summary": "Retrieve the most recent shipment, for the specified customer ID and order ID.",
                 "description": "",
                 "operationId": "Get last shipment",
-                "parameters": [
-                    {
-                        "name": "Content-Type",
-                        "in": "header",
-                        "description": "",
-                        "required": true,
-                        "style": "simple",
-                        "schema": {
-                            "type": "string",
-                            "example": "application/json"
-                        }
-                    }
-                ],
+                "parameters": [],
                 "responses": {
                     "200": {
                         "description": "",
@@ -427,19 +461,7 @@
                 "summary": "Lists all shipments, for the specific customer ID and order ID. Results will be paginated.",
                 "description": "",
                 "operationId": "List shipments",
-                "parameters": [
-                    {
-                        "name": "Content-Type",
-                        "in": "header",
-                        "description": "",
-                        "required": true,
-                        "style": "simple",
-                        "schema": {
-                            "type": "string",
-                            "example": "application/json"
-                        }
-                    }
-                ],
+                "parameters": [],
                 "responses": {
                     "200": {
                         "description": "",
@@ -464,14 +486,28 @@
                 "summary": "Automatically select stock lots that are available to fulfill the order, for the specified customer ID and order ID.",
                 "description": "",
                 "operationId": "Auto ship",
-                "parameters": [],
+                "parameters": [
+                    {
+                        "name": "tracking_number",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "delivery_method",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
                 "requestBody": {
                     "description": "",
                     "content": {
                         "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/AutoShipRequest"
-                            },
                             "example": {
                                 "tracking_number": "123456",
                                 "delivery_method": "UPS Ground"
@@ -504,49 +540,137 @@
                 "summary": "Updates the contents of an order, for the specified customer ID and order ID.",
                 "description": "",
                 "operationId": "Update an order",
-                "parameters": [],
-                "requestBody": {
-                    "description": "",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/Orders-updateanorderRequest"
-                            },
-                            "example": {
-                                "order_number": "SO100",
-                                "order_date": "3/1/20",
-                                "deliver_date": "3/15/20",
-                                "produce_date": "3/2/20",
-                                "payment_term_id": null,
-                                "status": "open",
-                                "salesperson_id": null,
-                                "payment_terms": null,
-                                "delivery_method_id": 1,
-                                "instructions": null,
-                                "subtotal": 100,
-                                "discount": 0,
-                                "tax": 0,
-                                "shipping": 0,
-                                "total": 0,
-                                "order_items_attributes": [
-                                    {
-                                        "inventory_id": 3,
-                                        "count": 0,
-                                        "unit_price": 0,
-                                        "override_unit_price": 0
-                                    },
-                                    {
-                                        "inventory_id": 4,
-                                        "count": 0,
-                                        "unit_price": 0,
-                                        "override_unit_price": 0
-                                    }
-                                ]
-                            }
+                "parameters": [
+                    {
+                        "name": "order_number",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
                         }
                     },
-                    "required": true
-                },
+                    {
+                        "name": "order_date",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "deliver_date",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "produce_date",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "payment_term_id",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "salesperson_id",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "payment_terms",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "delivery_method_id",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "instructions",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "subtotal",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "discount",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "tax",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "shipping",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "total",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "order_items_attributes",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {}
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "",
@@ -571,14 +695,141 @@
                 "summary": "Create a new order for the specified customer ID.",
                 "description": "",
                 "operationId": "Create an order",
-                "parameters": [],
+                "parameters": [
+                    {
+                        "name": "order_number",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "order_date",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "deliver_date",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "produce_date",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "payment_term_id",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "salesperson_id",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "payment_terms",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "delivery_method_id",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "instructions",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "subtotal",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "discount",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "tax",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "shipping",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "total",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "order_items_attributes",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {}
+                        }
+                    }
+                ],
                 "requestBody": {
                     "description": "",
                     "content": {
                         "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/Orders-createanorderRequest"
-                            },
                             "example": {
                                 "customer_id": 1,
                                 "order_number": "SO100",
@@ -639,19 +890,7 @@
                 "summary": "Lists all customers. Results will be paginated.",
                 "description": "",
                 "operationId": "List customers",
-                "parameters": [
-                    {
-                        "name": "Content-Type",
-                        "in": "header",
-                        "description": "",
-                        "required": true,
-                        "style": "simple",
-                        "schema": {
-                            "type": "string",
-                            "example": "application/json"
-                        }
-                    }
-                ],
+                "parameters": [],
                 "responses": {
                     "200": {
                         "description": "",
@@ -674,14 +913,143 @@
                 "summary": "Creates a new customer record.",
                 "description": "",
                 "operationId": "Create a customer",
-                "parameters": [],
+                "parameters": [
+                    {
+                        "name": "display_name",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "first_name",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "allowEmptyValue": true
+                    },
+                    {
+                        "name": "middle_name",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "allowEmptyValue": true
+                    },
+                    {
+                        "name": "last_name",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "allowEmptyValue": true
+                    },
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "phone",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "mobile",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "fax",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "website",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "custom_field_1",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "custom_field_2",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "custom_field_3",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "custom_field_4",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "business_license_number",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "billing_address_attributes",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "array"
+                        }
+                    },
+                    {
+                        "name": "shipping_address_attributes",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "array"
+                        }
+                    }
+                ],
                 "requestBody": {
                     "description": "",
                     "content": {
                         "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/CreateacustomerRequest"
-                            },
                             "example": {
                                 "customer": {
                                     "first_name": "John",
@@ -753,14 +1121,11 @@
                 "operationId": "Search for a customer",
                 "parameters": [
                     {
-                        "name": "Content-Type",
-                        "in": "header",
-                        "description": "",
+                        "name": "display_name",
+                        "in": "query",
                         "required": true,
-                        "style": "simple",
                         "schema": {
-                            "type": "string",
-                            "example": "application/json"
+                            "type": "string"
                         }
                     }
                 ],
@@ -788,19 +1153,7 @@
                 "summary": "Lists all customer kinds.",
                 "description": "",
                 "operationId": "List customer kinds",
-                "parameters": [
-                    {
-                        "name": "Content-Type",
-                        "in": "header",
-                        "description": "",
-                        "required": true,
-                        "style": "simple",
-                        "schema": {
-                            "type": "string",
-                            "example": "multipart/form-data"
-                        }
-                    }
-                ],
+                "parameters": [],
                 "responses": {
                     "200": {
                         "description": "",
@@ -940,15 +1293,28 @@
                         "schema": {
                             "type": "string"
                         }
+                    },
+                    {
+                        "name": "billing_address_attributes",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "array"
+                        }
+                    },
+                    {
+                        "name": "shipping_address_attributes",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "array"
+                        }
                     }
                 ],
                 "requestBody": {
                     "description": "",
                     "content": {
                         "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/UpdateacustomerRequest"
-                            },
                             "example": {
                                 "customer": {
                                     "first_name": "John",
@@ -1018,19 +1384,7 @@
                 "summary": "Lists all purchase orders. Results will be paginated.",
                 "description": "",
                 "operationId": "List purchases",
-                "parameters": [
-                    {
-                        "name": "Content-Type",
-                        "in": "header",
-                        "description": "",
-                        "required": true,
-                        "style": "simple",
-                        "schema": {
-                            "type": "string",
-                            "example": "application/json"
-                        }
-                    }
-                ],
+                "parameters": [],
                 "responses": {
                     "200": {
                         "description": "",
@@ -1052,22 +1406,10 @@
                 "tags": [
                     "Vendors"
                 ],
-                "summary": "Lists all vendor records. Results will be paginated.",
+                "summary": "Retrieve a vendor record for the specified vendor ID.",
                 "description": "",
                 "operationId": "Lookup a vendor",
-                "parameters": [
-                    {
-                        "name": "Content-Type",
-                        "in": "header",
-                        "description": "",
-                        "required": true,
-                        "style": "simple",
-                        "schema": {
-                            "type": "string",
-                            "example": "application/json"
-                        }
-                    }
-                ],
+                "parameters": [],
                 "responses": {
                     "200": {
                         "description": "",
@@ -1094,10 +1436,10 @@
                 "operationId": "Search for a vendor",
                 "parameters": [
                     {
-                        "name": "Content-Type",
-                        "in": "header",
+                        "name": "display_name",
+                        "in": "query",
                         "description": "",
-                        "required": true,
+                        "required": false,
                         "style": "simple",
                         "schema": {
                             "type": "string",
@@ -1129,19 +1471,7 @@
                 "summary": "Lists all delivery methods.",
                 "description": "",
                 "operationId": "List delivery methods",
-                "parameters": [
-                    {
-                        "name": "Content-Type",
-                        "in": "header",
-                        "description": "",
-                        "required": true,
-                        "style": "simple",
-                        "schema": {
-                            "type": "string",
-                            "example": "application/json"
-                        }
-                    }
-                ],
+                "parameters": [],
                 "responses": {
                     "200": {
                         "description": "",
@@ -1160,304 +1490,6 @@
         }
     },
     "components": {
-        "schemas": {
-            "Add stock lot": {
-                "title": "Add a stock lot",
-                "required": [
-                    "location_id",
-                    "lot_code",
-                    "barcode",
-                    "details",
-                    "note",
-                    "cost",
-                    "vendor_id",
-                    "expiration_date",
-                    "base_count"
-                ],
-                "type": "object",
-                "properties": {
-                    "location_id": {
-                        "type": "integer",
-                        "format": "int32"
-                    },
-                    "lot_code": {
-                        "type": "string"
-                    },
-                    "barcode": {
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "details": {
-                        "type": "string"
-                    },
-                    "note": {
-                        "type": "string"
-                    },
-                    "cost": {
-                        "type": "string"
-                    },
-                    "vendor_id": {
-                        "type": "integer",
-                        "format": "int32"
-                    },
-                    "expiration_date": {
-                        "type": "string"
-                    },
-                    "base_count": {
-                        "type": "string"
-                    }
-                },
-                "example": {
-                    "location_id": 1,
-                    "lot_code": "1234",
-                    "barcode": null,
-                    "details": "New",
-                    "note": "This is a note!",
-                    "cost": "100.0",
-                    "vendor_id": 1,
-                    "expiration_date": "4/1/20",
-                    "base_count": "100.0"
-                }
-            },
-            "Auto ship": {
-                "title": "Auto ship",
-                "required": [
-                    "tracking_number",
-                    "delivery_method"
-                ],
-                "type": "object",
-                "properties": {
-                    "tracking_number": {
-                        "type": "string"
-                    },
-                    "delivery_method": {
-                        "type": "string"
-                    }
-                },
-                "example": {
-                    "tracking_number": "123456",
-                    "delivery_method": "UPS Ground"
-                }
-            },
-            "Update an order": {
-                "title": "Update an order",
-                "required": [
-                    "order_number",
-                    "order_date",
-                    "deliver_date",
-                    "produce_date",
-                    "payment_term_id",
-                    "status",
-                    "salesperson_id",
-                    "payment_terms",
-                    "delivery_method_id",
-                    "instructions",
-                    "subtotal",
-                    "discount",
-                    "tax",
-                    "shipping",
-                    "total",
-                    "order_items_attributes"
-                ],
-                "type": "object",
-                "properties": {
-                    "order_number": {
-                        "type": "string"
-                    },
-                    "order_date": {
-                        "type": "string"
-                    },
-                    "deliver_date": {
-                        "type": "string"
-                    },
-                    "produce_date": {
-                        "type": "string"
-                    },
-                    "payment_term_id": {
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "status": {
-                        "type": "string"
-                    },
-                    "salesperson_id": {
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "payment_terms": {
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "delivery_method_id": {
-                        "type": "integer",
-                        "format": "int32"
-                    },
-                    "instructions": {
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "subtotal": {
-                        "type": "number"
-                    },
-                    "discount": {
-                        "type": "number"
-                    },
-                    "tax": {
-                        "type": "number"
-                    },
-                    "shipping": {
-                        "type": "number"
-                    },
-                    "total": {
-                        "type": "number"
-                    },
-                    "order_items_attributes": {
-                        "type": "array",
-                        "items": {
-                            "type": "object"
-                        },
-                        "description": ""
-                    }
-                },
-                "example": {
-                    "order_number": "SO100",
-                    "order_date": "3/1/20",
-                    "deliver_date": "3/15/20",
-                    "produce_date": "3/2/20",
-                    "payment_term_id": null,
-                    "status": "open",
-                    "salesperson_id": null,
-                    "payment_terms": null,
-                    "delivery_method_id": 1,
-                    "instructions": null,
-                    "subtotal": 100,
-                    "discount": 0,
-                    "tax": 0,
-                    "shipping": 0,
-                    "total": 0,
-                    "order_items_attributes": [
-                        {
-                            "inventory_id": 3,
-                            "count": 0,
-                            "unit_price": 0,
-                            "override_unit_price": 0
-                        },
-                        {
-                            "inventory_id": 4,
-                            "count": 0,
-                            "unit_price": 0,
-                            "override_unit_price": 0
-                        }
-                    ]
-                }
-            },
-            "Create an order": {
-                "title": "Create a customer",
-                "required": [
-                    "customer"
-                ],
-                "type": "object",
-                "properties": {
-                    "customer": {
-                        "type": "object"
-                    }
-                },
-                "example": {
-                    "customer": {
-                        "first_name": "John",
-                        "middle_name": null,
-                        "last_name": "Smith",
-                        "display_name": "John Smith",
-                        "email": "test@example.com",
-                        "phone": "555-1212",
-                        "mobile": "555-2222",
-                        "fax": "555-3333",
-                        "website": "https://website.com",
-                        "note": "This is a customer note.",
-                        "custom_field_1": null,
-                        "custom_field_2": null,
-                        "custom_field_3": null,
-                        "custom_field_4": null,
-                        "business_license_number": "123",
-                        "billing_address_attributes": {
-                            "line1": "123 Main",
-                            "line2": null,
-                            "line3": null,
-                            "line4": null,
-                            "line5": null,
-                            "city": null,
-                            "country_subdivision_code": null,
-                            "postal_code": null,
-                            "country": null
-                        },
-                        "shipping_address_attributes": {
-                            "line1": "555 Main",
-                            "line2": null,
-                            "line3": null,
-                            "line4": null,
-                            "line5": null,
-                            "city": null,
-                            "country_subdivision_code": null,
-                            "postal_code": null,
-                            "country": null
-                        }
-                    }
-                }
-            },
-            "Update a customer": {
-                "title": "Update a customer",
-                "required": [
-                    "customer"
-                ],
-                "type": "object",
-                "properties": {
-                    "customer": {
-                        "type": "object"
-                    }
-                },
-                "example": {
-                    "customer": {
-                        "first_name": "John",
-                        "middle_name": null,
-                        "last_name": "Smith",
-                        "display_name": "John A Smith",
-                        "email": "test@example.com",
-                        "phone": "555-1212",
-                        "mobile": "555-2222",
-                        "fax": "555-3333",
-                        "website": "https://website.com",
-                        "note": "This is a customer note.",
-                        "custom_field_1": null,
-                        "custom_field_2": null,
-                        "custom_field_3": null,
-                        "custom_field_4": null,
-                        "business_license_number": "123",
-                        "billing_address_attributes": {
-                            "line1": "123 Main",
-                            "line2": null,
-                            "line3": null,
-                            "line4": null,
-                            "line5": null,
-                            "city": null,
-                            "country_subdivision_code": null,
-                            "postal_code": null,
-                            "country": null
-                        },
-                        "shipping_address_attributes": {
-                            "line1": "555 Main",
-                            "line2": null,
-                            "line3": null,
-                            "line4": null,
-                            "line5": null,
-                            "city": null,
-                            "country_subdivision_code": null,
-                            "postal_code": null,
-                            "country": null
-                        }
-                    }
-                }
-            }
-        },
         "securitySchemes": {
             "httpBasic": {
                 "type": "http",
@@ -1465,7 +1497,8 @@
             }
         },
         "links": {},
-        "callbacks": {}
+        "callbacks": {},
+        "schemas": {}
     },
     "security": [
         {
