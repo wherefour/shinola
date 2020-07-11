@@ -18,7 +18,7 @@
                 "tags": [
                     "Inventory"
                 ],
-                "summary": "Last stock lot change",
+                "summary": "Retrieve the last stock change that was made.",
                 "description": "",
                 "operationId": "Last stock lot change",
                 "parameters": [
@@ -55,7 +55,7 @@
                 "tags": [
                     "Inventory"
                 ],
-                "summary": "List inventory items",
+                "summary": "Lists all inventory items. Results will be paginated.",
                 "description": "",
                 "operationId": "List inventory items",
                 "parameters": [
@@ -92,7 +92,7 @@
                 "tags": [
                     "Inventory"
                 ],
-                "summary": "Search for inventory item",
+                "summary": "Search for inventory item, based on the inventory item name.",
                 "description": "",
                 "operationId": "Search for an inventory item",
                 "parameters": [
@@ -129,7 +129,7 @@
                 "tags": [
                     "Inventory"
                 ],
-                "summary": "Add a stock lot",
+                "summary": "Add a new stock lot to the specific inventory item.",
                 "description": "",
                 "operationId": "Add a stock lot",
                 "parameters": [],
@@ -137,8 +137,49 @@
                     "description": "",
                     "content": {
                         "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/AddastocklotRequest"
+                            "required": [
+                                "location_id",
+                                "lot_code",
+                                "barcode",
+                                "details",
+                                "note",
+                                "cost",
+                                "vendor_id",
+                                "expiration_date",
+                                "base_count"
+                            ],
+                            "type": "object",
+                            "properties": {
+                                "location_id": {
+                                    "type": "integer",
+                                    "format": "int32"
+                                },
+                                "lot_code": {
+                                    "type": "string"
+                                },
+                                "barcode": {
+                                    "type": "string",
+                                    "nullable": true
+                                },
+                                "details": {
+                                    "type": "string"
+                                },
+                                "note": {
+                                    "type": "string"
+                                },
+                                "cost": {
+                                    "type": "string"
+                                },
+                                "vendor_id": {
+                                    "type": "integer",
+                                    "format": "int32"
+                                },
+                                "expiration_date": {
+                                    "type": "string"
+                                },
+                                "base_count": {
+                                    "type": "string"
+                                }
                             },
                             "example": {
                                 "location_id": 1,
@@ -176,20 +217,42 @@
                 "tags": [
                     "Shipments"
                 ],
-                "summary": "List shipments",
+                "summary": "Returns all shipments. Results will be paginated.",
                 "description": "",
                 "operationId": "List shipments",
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "headers": {},
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/shipments/search": {
+            "get": {
+                "tags": [
+                    "Shipments"
+                ],
+                "summary": "Search for shipments for a specific Wherefour order number. Results will be paginated.",
+                "description": "",
+                "operationId": "Search for shipments",
                 "parameters": [
                     {
-                        "name": "Content-Type",
-                        "in": "header",
-                        "description": "",
+                        "name": "order_number",
+                        "in": "query",
                         "required": true,
-                        "style": "simple",
                         "schema": {
-                            "type": "string",
-                            "example": "application/json"
-                        }
+                            "type": "string"
+                        },
+                        "description": "The order number in Wherefour to search for shipments, e.g. \"SO105\""
                     }
                 ],
                 "responses": {
@@ -213,7 +276,7 @@
                 "tags": [
                     "Orders"
                 ],
-                "summary": "List orders",
+                "summary": "Lists all orders. Results will be paginated.",
                 "description": "",
                 "operationId": "List orders",
                 "parameters": [
@@ -250,7 +313,7 @@
                 "tags": [
                     "Orders"
                 ],
-                "summary": "Get an order",
+                "summary": "Retrieve a specific order, based on the order ID.",
                 "description": "",
                 "operationId": "Get an order",
                 "parameters": [
@@ -287,7 +350,7 @@
                 "tags": [
                     "Orders"
                 ],
-                "summary": "Search for an order",
+                "summary": "Search for an order, based on the Wherefour Order Number, e.g. 'SO1'.",
                 "description": "",
                 "operationId": "Search for an order",
                 "parameters": [
@@ -324,7 +387,7 @@
                 "tags": [
                     "Orders"
                 ],
-                "summary": "Get last shipment",
+                "summary": "Retrieve the most recent shipment, for the specified customer ID and order ID.",
                 "description": "",
                 "operationId": "Get last shipment",
                 "parameters": [
@@ -361,7 +424,7 @@
                 "tags": [
                     "Orders"
                 ],
-                "summary": "List shipments",
+                "summary": "Lists all shipments, for the specific customer ID and order ID. Results will be paginated.",
                 "description": "",
                 "operationId": "List shipments",
                 "parameters": [
@@ -398,7 +461,7 @@
                 "tags": [
                     "Orders"
                 ],
-                "summary": "Automatically select stock lots to fulfill the specified order.",
+                "summary": "Automatically select stock lots that are available to fulfill the order, for the specified customer ID and order ID.",
                 "description": "",
                 "operationId": "Auto ship",
                 "parameters": [],
@@ -438,7 +501,7 @@
                 "tags": [
                     "Orders"
                 ],
-                "summary": "Update an order",
+                "summary": "Updates the contents of an order, for the specified customer ID and order ID.",
                 "description": "",
                 "operationId": "Update an order",
                 "parameters": [],
@@ -505,7 +568,7 @@
                 "tags": [
                     "Orders"
                 ],
-                "summary": "Create an order",
+                "summary": "Create a new order for the specified customer ID.",
                 "description": "",
                 "operationId": "Create an order",
                 "parameters": [],
@@ -573,7 +636,7 @@
                 "tags": [
                     "Customers"
                 ],
-                "summary": "List customers",
+                "summary": "Lists all customers. Results will be paginated.",
                 "description": "",
                 "operationId": "List customers",
                 "parameters": [
@@ -608,7 +671,7 @@
                 "tags": [
                     "Customers"
                 ],
-                "summary": "Create a customer",
+                "summary": "Creates a new customer record.",
                 "description": "",
                 "operationId": "Create a customer",
                 "parameters": [],
@@ -685,7 +748,7 @@
                 "tags": [
                     "Customers"
                 ],
-                "summary": "Search for customer",
+                "summary": "Search for a customer with the specified display name.",
                 "description": "",
                 "operationId": "Search for a customer",
                 "parameters": [
@@ -722,7 +785,7 @@
                 "tags": [
                     "Customers"
                 ],
-                "summary": "List customer kinds",
+                "summary": "Lists all customer kinds.",
                 "description": "",
                 "operationId": "List customer kinds",
                 "parameters": [
@@ -759,10 +822,126 @@
                 "tags": [
                     "Customers"
                 ],
-                "summary": "Update a customer",
+                "summary": "Updates a customer record.",
                 "description": "",
                 "operationId": "Update a customer",
-                "parameters": [],
+                "parameters": [
+                    {
+                        "name": "display_name",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "first_name",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "allowEmptyValue": true
+                    },
+                    {
+                        "name": "middle_name",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "allowEmptyValue": true
+                    },
+                    {
+                        "name": "last_name",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "allowEmptyValue": true
+                    },
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "phone",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "mobile",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "fax",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "website",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "custom_field_1",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "custom_field_2",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "custom_field_3",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "custom_field_4",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "business_license_number",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
                 "requestBody": {
                     "description": "",
                     "content": {
@@ -836,7 +1015,7 @@
                 "tags": [
                     "Purchases"
                 ],
-                "summary": "List purchases",
+                "summary": "Lists all purchase orders. Results will be paginated.",
                 "description": "",
                 "operationId": "List purchases",
                 "parameters": [
@@ -873,7 +1052,7 @@
                 "tags": [
                     "Vendors"
                 ],
-                "summary": "Get vendor",
+                "summary": "Lists all vendor records. Results will be paginated.",
                 "description": "",
                 "operationId": "Lookup a vendor",
                 "parameters": [
@@ -910,7 +1089,7 @@
                 "tags": [
                     "Vendors"
                 ],
-                "summary": "Search for a vendor",
+                "summary": "Search for a vendor with the specified display name.",
                 "description": "",
                 "operationId": "Search for a vendor",
                 "parameters": [
@@ -947,7 +1126,7 @@
                 "tags": [
                     "Vendors"
                 ],
-                "summary": "List delivery methods",
+                "summary": "Lists all delivery methods.",
                 "description": "",
                 "operationId": "List delivery methods",
                 "parameters": [
