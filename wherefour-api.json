@@ -1518,7 +1518,9 @@
               },
               "shipment_items": {
                 "type": "array",
-                "$ref": "#/components/schemas/shipping_item"
+                "items": {
+                  "$ref": "#/components/schemas/shipping_item"
+                }
               }
             }
           },
