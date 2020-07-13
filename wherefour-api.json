@@ -297,10 +297,18 @@
                         "description": "",
                         "headers": {},
                         "content": {
-                            "text/plain": {
+                            "application/json": {
                                 "schema": {
-                                    "type": "object"
-                                }
+                                    "type": "array",
+                                    "items": {
+                                      "$ref": "#/components/schemas/shipment"
+                                    }
+                                },
+                                "example": [
+                                  {
+                                    "id": 10
+                                  }
+                                ]
                             }
                         }
                     }
@@ -1498,7 +1506,72 @@
         },
         "links": {},
         "callbacks": {},
-        "schemas": {}
+        "schemas": {
+          "shipment": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer"
+              },
+              "shipping_address": {
+                "$ref": "#/components/schemas/shipping_address"
+              },
+              "shipment_items": {
+                "type": "array",
+                "$ref": "#/components/schemas/shipping_item"
+              }
+            }
+          },
+          "shipping_address": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer"
+              },
+              "line1": {
+                "type": "string"
+              },
+              "line2": {
+                "type": "string"
+              },
+              "line3": {
+                "type": "string"
+              },
+              "line4": {
+                "type": "string"
+              },
+              "line5": {
+                "type": "string"
+              },
+              "city": {
+                "type": "string"
+              },
+              "country_subdivision_code": {
+                "type": "string"
+              },
+              "postal_code": {
+                "type": "string"
+              },
+              "country": {
+                "type": "string"
+              },
+              "created_at": {
+                "type": "datetime"
+              },
+              "updated_at": {
+                "type": "datetime"
+              }
+            }
+          },
+          "shipping_item": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer"
+              }
+            }
+          }
+        }
     },
     "security": [
         {
