@@ -922,7 +922,7 @@
           }
         },
         "summary": "Search for Order",
-        "operationId": "search-order"
+        "operationId": "search-orders"
       },
       "x-last-modified": 1599932689439,
       "parameters": [
@@ -1648,7 +1648,7 @@
             }
           }
         },
-        "operationId": "get-inventory-search",
+        "operationId": "search-inventory",
         "description": "Returns inventory items that match the given name or SKU. Multiple matches may be returned.",
         "requestBody": {
           "content": {
@@ -1925,7 +1925,7 @@
             }
           }
         },
-        "operationId": "shipments-search",
+        "operationId": "search-shipments",
         "description": "Returns a paginated list of shipments for the specified order number.",
         "requestBody": {
           "content": {
@@ -2184,7 +2184,7 @@
             }
           }
         },
-        "operationId": "get-customers-search",
+        "operationId": "search-customers",
         "description": "Returns customer records with a match on the display name.",
         "requestBody": {
           "content": {
@@ -2229,7 +2229,7 @@
             }
           }
         },
-        "operationId": "get-customers-kinds",
+        "operationId": "get-customer-kinds",
         "description": "Returns of list of customer types."
       }
     },
