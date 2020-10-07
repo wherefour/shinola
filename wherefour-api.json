@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "Wherefour API",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "description": "API documentation for the Wherefour ERP/traceability platform. More information at: [wherefour.com](https://wherefour.com).",
     "termsOfService": "https://my.wherefour.com/terms_of_service",
     "contact": {
@@ -1449,7 +1449,33 @@
           }
         },
         "summary": "Auto Pick and Ship",
-        "operationId": "auto-pick-and-ship"
+        "operationId": "auto-pick-and-ship",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "location_name",
+            "description": "Name of the Wherefour location to pull stock from. If not provided, auto ship will pull available stock lots from any location. Name lookup will use the closest found match for the name provided or \"null\" for no match."
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "delivery_method",
+            "description": "Name of the Wherefour delivery method to use for the shipment. Name lookup will use the closest found match for the name provided or \"null\" for no match."
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "tracking_number",
+            "description": "Tracking number to record for the shipment."
+          }
+        ]
       },
       "x-last-modified": 1599933353969,
       "parameters": [
