@@ -1358,10 +1358,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": [
-                  "string",
-                  "object"
-                ],
+                "type": "object",
                 "description": "Name of the Wherefour delivery method to use for the shipment. Name lookup will use the closest found match for the name provided or \"null\" for no match.",
                 "properties": {
                   "delivery_method": {
@@ -1384,7 +1381,8 @@
                 "Example": {
                   "value": {
                     "tracking_number": "123456",
-                    "delivery_method": "UPS Ground"
+                    "delivery_method": "UPS Ground",
+                    "location_name": "North Warehouse"
                   }
                 }
               }
