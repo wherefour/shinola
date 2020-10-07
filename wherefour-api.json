@@ -1358,8 +1358,27 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "properties": {}
+                "type": [
+                  "string",
+                  "object"
+                ],
+                "description": "Name of the Wherefour delivery method to use for the shipment. Name lookup will use the closest found match for the name provided or \"null\" for no match.",
+                "properties": {
+                  "delivery_method": {
+                    "type": "string"
+                  },
+                  "location_name": {
+                    "type": "string",
+                    "description": "Name of the Wherefour location to pull stock from. If not provided, auto ship will pull available stock lots from any location. Name lookup will use the closest found match for the name provided or \"null\" for no match."
+                  },
+                  "tracking_number": {
+                    "type": "string",
+                    "description": "Tracking number to record for the shipment."
+                  }
+                },
+                "required": [
+                  "delivery_method"
+                ]
               },
               "examples": {
                 "Example": {
@@ -1368,6 +1387,24 @@
                     "delivery_method": "UPS Ground"
                   }
                 }
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            },
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            },
+            "text/html": {
+              "schema": {
+                "type": "object",
+                "properties": {}
               }
             }
           },
@@ -1450,33 +1487,7 @@
         },
         "summary": "Auto Pick and Ship",
         "operationId": "auto-pick-and-ship",
-        "parameters": [
-          {
-            "schema": {
-              "type": "string"
-            },
-            "in": "query",
-            "name": "location_name",
-            "description": "Name of the Wherefour location to pull stock from. If not provided, auto ship will pull available stock lots from any location. Name lookup will use the closest found match for the name provided or \"null\" for no match."
-          },
-          {
-            "schema": {
-              "type": "string"
-            },
-            "in": "query",
-            "name": "delivery_method",
-            "description": "Name of the Wherefour delivery method to use for the shipment. Name lookup will use the closest found match for the name provided or \"null\" for no match.",
-            "required": true
-          },
-          {
-            "schema": {
-              "type": "string"
-            },
-            "in": "query",
-            "name": "tracking_number",
-            "description": "Tracking number to record for the shipment."
-          }
-        ]
+        "parameters": []
       },
       "x-last-modified": 1599933353969,
       "parameters": [
