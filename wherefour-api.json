@@ -1371,7 +1371,7 @@
               }
             }
           },
-          "description": "Delivery method is required and must match exactly with the definition in Wherefour. Tracking number is optional."
+          "description": ""
         },
         "description": "Performs a \"pick and ship\" for the specified order. Wherefour will auto-select available lot coded inventory, based on each inventory item's pull strategy, to fulfill the order. If not enough inventory is available, a partial shipment will be created. Results of the shipment, with the selected stock lots, will be returned.",
         "responses": {
@@ -1465,7 +1465,8 @@
             },
             "in": "query",
             "name": "delivery_method",
-            "description": "Name of the Wherefour delivery method to use for the shipment. Name lookup will use the closest found match for the name provided or \"null\" for no match."
+            "description": "Name of the Wherefour delivery method to use for the shipment. Name lookup will use the closest found match for the name provided or \"null\" for no match.",
+            "required": true
           },
           {
             "schema": {
