@@ -3287,16 +3287,10 @@
           "id": {
             "type": "integer"
           },
-          "order_date": {
+          "quote_date": {
             "type": "string"
           },
-          "produce_date": {
-            "type": "string"
-          },
-          "deliver_date": {
-            "type": "string"
-          },
-          "po_number": {
+          "expiration_date": {
             "type": "string"
           },
           "status": {
@@ -3320,16 +3314,13 @@
           "total": {
             "type": "string"
           },
-          "order_number": {
+          "quote_number": {
             "type": "string"
           },
           "created_at": {
             "type": "string"
           },
           "updated_at": {
-            "type": "string"
-          },
-          "invoiced_at": {
             "type": "string"
           },
           "customer": {
