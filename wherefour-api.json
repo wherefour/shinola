@@ -293,7 +293,7 @@
         },
         "description": "Updates an existing order",
         "tags": [
-          "orders"
+          "Orders"
         ]
       }
     },
@@ -302,7 +302,7 @@
       "description": "Retrieves an order record by ID",
       "get": {
         "tags": [
-          "orders"
+          "Orders"
         ],
         "summary": "Get Order",
         "description": "Retrieves an order record by ID",
@@ -444,7 +444,7 @@
       "description": "Creates a new order for a customer",
       "post": {
         "tags": [
-          "orders"
+          "Orders"
         ],
         "description": "Creates a new order for the customer.",
         "summary": "Create Order",
@@ -820,7 +820,7 @@
       "description": "Locates an order by the order_number",
       "get": {
         "tags": [
-          "orders"
+          "Orders"
         ],
         "description": "Locates an order by the order_number",
         "requestBody": {
@@ -943,7 +943,7 @@
       "description": "Returns a paginated list of all orders.",
       "get": {
         "tags": [
-          "orders"
+          "Orders"
         ],
         "summary": "List Orders",
         "description": "Returns a paginated list of all orders.",
@@ -1094,7 +1094,7 @@
       "description": "Returns the most recent shipment information for the order ID provided.",
       "get": {
         "tags": [
-          "orders"
+          "Orders"
         ],
         "summary": "Get Last Shipment",
         "description": "Returns the most recent shipment information for the order ID provided.",
@@ -1222,7 +1222,7 @@
       "description": "Returns a paginated list of all the shipments for a specific order ID.",
       "get": {
         "tags": [
-          "orders"
+          "Orders"
         ],
         "summary": "List shipments for order",
         "description": "Returns the most recent shipment information for the order ID provided.",
@@ -1352,7 +1352,7 @@
       "description": "Performs a \"pick and ship\" for the specified order. Wherefour will auto-select available lot coded inventory, based on each inventory items pull strategy, to fulfill the order. If not enough inventory is available, a partial shipment will be created. Results of the shipment, with the selected stock lots, will be returned.",
       "post": {
         "tags": [
-          "orders"
+          "Orders"
         ],
         "requestBody": {
           "content": {
@@ -1504,7 +1504,7 @@
       "get": {
         "summary": "Get Last Stock Lot Change",
         "tags": [
-          "inventory"
+          "Inventory"
         ],
         "responses": {
           "200": {
@@ -1604,7 +1604,7 @@
       "get": {
         "summary": "List Inventory Items",
         "tags": [
-          "inventory"
+          "Inventory"
         ],
         "responses": {
           "200": {
@@ -1648,7 +1648,7 @@
       "get": {
         "summary": "Search for Inventory Item",
         "tags": [
-          "inventory"
+          "Inventory"
         ],
         "responses": {
           "200": {
@@ -1784,7 +1784,7 @@
           }
         },
         "tags": [
-          "inventory"
+          "Inventory"
         ]
       },
       "parameters": [
@@ -1803,7 +1803,7 @@
       "get": {
         "summary": "List Shipments",
         "tags": [
-          "shipments"
+          "Shipments"
         ],
         "responses": {
           "200": {
@@ -1886,7 +1886,7 @@
       "get": {
         "summary": "Search for Shipment",
         "tags": [
-          "shipments"
+          "Shipments"
         ],
         "responses": {
           "200": {
@@ -1987,7 +1987,7 @@
       "get": {
         "summary": "List Customers",
         "tags": [
-          "customers"
+          "Customers"
         ],
         "responses": {
           "200": {
@@ -2157,7 +2157,7 @@
           }
         },
         "tags": [
-          "customers"
+          "Customers"
         ]
       }
     },
@@ -2165,7 +2165,7 @@
       "get": {
         "summary": "Search for a Customer",
         "tags": [
-          "customers"
+          "Customers"
         ],
         "responses": {
           "200": {
@@ -2245,7 +2245,7 @@
       "get": {
         "summary": "List Customer Kinds",
         "tags": [
-          "customers"
+          "Customers"
         ],
         "responses": {
           "200": {
@@ -2284,7 +2284,7 @@
       "get": {
         "summary": "Get Customer",
         "tags": [
-          "customers"
+          "Customers"
         ],
         "responses": {
           "200": {
@@ -2414,7 +2414,7 @@
           }
         },
         "tags": [
-          "customers"
+          "Customers"
         ]
       }
     },
@@ -2422,7 +2422,7 @@
       "get": {
         "summary": "List Purchases",
         "tags": [
-          "purchases"
+          "Purchases"
         ],
         "responses": {
           "200": {
@@ -2542,7 +2542,7 @@
       "get": {
         "summary": "Search Purchases",
         "tags": [
-          "purchases"
+          "Purchases"
         ],
         "responses": {
           "200": {
@@ -2661,7 +2661,7 @@
       "get": {
         "summary": "Get Vendor",
         "tags": [
-          "vendors"
+          "Vendors"
         ],
         "responses": {
           "200": {
@@ -2739,7 +2739,7 @@
       "get": {
         "summary": "Search Vendors",
         "tags": [
-          "vendors"
+          "Vendors"
         ],
         "responses": {
           "200": {
@@ -2806,7 +2806,7 @@
       "get": {
         "summary": "List Delivery Methods",
         "tags": [
-          "settings"
+          "Settings"
         ],
         "responses": {
           "200": {
@@ -4796,25 +4796,25 @@
   },
   "tags": [
     {
-      "name": "inventory"
+      "name": "Inventory"
     },
     {
-      "name": "orders"
+      "name": "Orders"
     },
     {
-      "name": "shipments"
+      "name": "Shipments"
     },
     {
-      "name": "purchases"
+      "name": "Purchases"
     },
     {
-      "name": "customers"
+      "name": "Customers"
     },
     {
-      "name": "vendors"
+      "name": "Vendors"
     },
     {
-      "name": "settings"
+      "name": "Settings"
     }
   ],
   "security": [
