@@ -1500,6 +1500,2086 @@
         }
       ]
     },
+    "/customers/{customer_id}/quotes/{quote_id}": {
+      "summary": "Update quote",
+      "description": "Updates an existing quote",
+      "parameters": [
+        {
+          "schema": {
+            "type": "integer"
+          },
+          "name": "quote_id",
+          "in": "path",
+          "required": true,
+          "description": "quote record ID"
+        },
+        {
+          "schema": {
+            "type": "integer"
+          },
+          "name": "customer_id",
+          "in": "path",
+          "required": true,
+          "description": "customer record ID"
+        }
+      ],
+      "x-last-modified": 1599932318858,
+      "patch": {
+        "summary": "Update Quote",
+        "operationId": "Update a quote",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/quote"
+                },
+                "examples": {
+                  "Example": {
+                    "value": {
+                      "id": 6,
+                      "quote_date": "2020-09-04",
+                      "expiration_date": "2020-09-04",
+                      "status": "draft",
+                      "subtotal": "100.0",
+                      "discount": "0.0",
+                      "tax": "0.0",
+                      "shipping": "0.0",
+                      "total": "0.0",
+                      "quote_number": "QO100",
+                      "created_at": "2020-09-12T16:13:45.549Z",
+                      "updated_at": "2020-09-12T16:13:45.549Z",
+                      "customer": {
+                        "id": 1,
+                        "first_name": "",
+                        "last_name": "",
+                        "display_name": "Embarcadero Market & Deli",
+                        "email": "buyer@embarcaderodeli.com",
+                        "phone": "415-555-6687",
+                        "mobile": "",
+                        "fax": "",
+                        "website": "https://wherefour.com",
+                        "kind": "retailer",
+                        "created_at": "2020-09-11T13:57:46.742Z",
+                        "updated_at": "2020-09-11T13:57:46.742Z",
+                        "payment_terms": "Net 30",
+                        "delivery_method": "Route: Embarcadero North",
+                        "billing_address": {
+                          "id": 1,
+                          "line1": "1142 Main Street",
+                          "line2": "Suite 100",
+                          "city": "San Francisco",
+                          "country_subdivision_code": "CA",
+                          "postal_code": "94455",
+                          "created_at": "2020-09-11T13:57:46.802Z",
+                          "updated_at": "2020-09-11T13:57:46.802Z"
+                        },
+                        "shipping_address": {
+                          "id": 2,
+                          "line1": "415 S. Pine Street",
+                          "line2": "Suite 210",
+                          "line3": "Apt. G",
+                          "city": "Petaluma",
+                          "country_subdivision_code": "CA",
+                          "postal_code": "94954",
+                          "created_at": "2020-09-11T13:57:46.802Z",
+                          "updated_at": "2020-09-11T13:57:46.802Z"
+                        }
+                      },
+                      "delivery_method": {
+                        "id": 1,
+                        "name": "UPS Ground",
+                        "kind": "shipping"
+                      },
+                      "quote_items": [
+                        {
+                          "id": 10,
+                          "name": "Chocolate bar",
+                          "inventory_id": 4,
+                          "category_name": "Products",
+                          "count": "0.0",
+                          "cost": "0.0",
+                          "sku": "SK0001",
+                          "created_at": "2020-09-12T16:13:45.568Z",
+                          "updated_at": "2020-09-12T16:13:45.568Z",
+                          "inventory": {
+                            "id": 4,
+                            "name": "Chocolate bar",
+                            "category_name": "Products",
+                            "on_hand": "75.0",
+                            "unit_of_use": "each",
+                            "unit_of_purchase": "each",
+                            "property": "finished_good",
+                            "sku": "SK0001",
+                            "created_at": "2020-09-11T13:57:46.825Z",
+                            "updated_at": "2020-09-11T13:57:46.825Z"
+                          }
+                        },
+                        {
+                          "id": 11,
+                          "name": "Chocolate bar, finished case",
+                          "inventory_id": 6,
+                          "category_name": "Products",
+                          "count": "0.0",
+                          "cost": "0.0",
+                          "sku": "SK0002",
+                          "created_at": "2020-09-12T16:13:45.574Z",
+                          "updated_at": "2020-09-12T16:13:45.574Z",
+                          "inventory": {
+                            "id": 6,
+                            "name": "Chocolate bar, finished case",
+                            "category_name": "Products",
+                            "on_hand": "40.0",
+                            "unit_of_use": "case",
+                            "unit_of_purchase": "case",
+                            "property": "finished_good",
+                            "sku": "SK0002",
+                            "created_at": "2020-09-11T13:57:46.825Z",
+                            "updated_at": "2020-09-11T13:57:46.825Z"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/quote"
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "id": 6,
+                      "quote_date": "2020-09-04",
+                      "expiration_date": "2020-09-04",
+                      "status": "accepted",
+                      "subtotal": "100.0",
+                      "discount": "0.0",
+                      "tax": "0.0",
+                      "shipping": "0.0",
+                      "total": "0.0",
+                      "quote_number": "QO100",
+                      "created_at": "2020-09-12T16:13:45.549Z",
+                      "updated_at": "2020-09-12T16:13:45.549Z",
+                      "customer": {
+                        "id": 1,
+                        "first_name": "",
+                        "last_name": "",
+                        "display_name": "Embarcadero Market & Deli",
+                        "email": "buyer@embarcaderodeli.com",
+                        "phone": "415-555-6687",
+                        "mobile": "",
+                        "fax": "",
+                        "website": "https://wherefour.com",
+                        "kind": "retailer",
+                        "created_at": "2020-09-11T13:57:46.742Z",
+                        "updated_at": "2020-09-11T13:57:46.742Z",
+                        "payment_terms": "Net 30",
+                        "delivery_method": "Route: Embarcadero North",
+                        "billing_address": {
+                          "id": 1,
+                          "line1": "1142 Main Street",
+                          "line2": "Suite 100",
+                          "city": "San Francisco",
+                          "country_subdivision_code": "CA",
+                          "postal_code": "94455",
+                          "created_at": "2020-09-11T13:57:46.802Z",
+                          "updated_at": "2020-09-11T13:57:46.802Z"
+                        },
+                        "shipping_address": {
+                          "id": 2,
+                          "line1": "415 S. Pine Street",
+                          "line2": "Suite 210",
+                          "line3": "Apt. G",
+                          "city": "Petaluma",
+                          "country_subdivision_code": "CA",
+                          "postal_code": "94954",
+                          "created_at": "2020-09-11T13:57:46.802Z",
+                          "updated_at": "2020-09-11T13:57:46.802Z"
+                        }
+                      },
+                      "delivery_method": {
+                        "id": 1,
+                        "name": "UPS Ground",
+                        "kind": "shipping"
+                      },
+                      "quote_items": [
+                        {
+                          "id": 10,
+                          "name": "Chocolate bar",
+                          "inventory_id": 4,
+                          "category_name": "Products",
+                          "count": "0.0",
+                          "cost": "0.0",
+                          "sku": "SK0001",
+                          "created_at": "2020-09-12T16:13:45.568Z",
+                          "updated_at": "2020-09-12T16:13:45.568Z",
+                          "inventory": {
+                            "id": 4,
+                            "name": "Chocolate bar",
+                            "category_name": "Products",
+                            "on_hand": "75.0",
+                            "unit_of_use": "each",
+                            "unit_of_purchase": "each",
+                            "property": "finished_good",
+                            "sku": "SK0001",
+                            "created_at": "2020-09-11T13:57:46.825Z",
+                            "updated_at": "2020-09-11T13:57:46.825Z"
+                          }
+                        },
+                        {
+                          "id": 11,
+                          "name": "Chocolate bar, finished case",
+                          "inventory_id": 6,
+                          "category_name": "Products",
+                          "count": "0.0",
+                          "cost": "0.0",
+                          "sku": "SK0002",
+                          "created_at": "2020-09-12T16:13:45.574Z",
+                          "updated_at": "2020-09-12T16:13:45.574Z",
+                          "inventory": {
+                            "id": 6,
+                            "name": "Chocolate bar, finished case",
+                            "category_name": "Products",
+                            "on_hand": "40.0",
+                            "unit_of_use": "case",
+                            "unit_of_purchase": "case",
+                            "property": "finished_good",
+                            "sku": "SK0002",
+                            "created_at": "2020-09-11T13:57:46.825Z",
+                            "updated_at": "2020-09-11T13:57:46.825Z"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "description": "Updates an existing quote",
+        "tags": [
+          "Quotes"
+        ]
+      }
+    },
+    "/quotes/{quote_id}": {
+      "summary": "Get a quote",
+      "description": "Retrieves a quote record by ID",
+      "get": {
+        "tags": [
+          "Quotes"
+        ],
+        "summary": "Get Quote",
+        "description": "Retrieves a quote record by ID",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/quote"
+                },
+                "examples": {
+                  "Example": {
+                    "value": {
+                      "id": 1,
+                      "quote_date": "2020-09-04",
+                      "expiration_date": "2020-09-04",
+                      "status": "complete",
+                      "salesperson_id": null,
+                      "salesperson_name": null,
+                      "delivery_method_id": 1,
+                      "instructions": "",
+                      "subtotal": "100.0",
+                      "discount": "0.0",
+                      "tax": "0.0",
+                      "shipping": "0.0",
+                      "total": "0.0",
+                      "quote_number": "QO1",
+                      "payment_term_id": null,
+                      "created_at": "2020-09-11T13:57:46.842Z",
+                      "updated_at": "2020-09-12T16:22:26.851Z",
+                      "customer": {
+                        "id": 1,
+                        "first_name": "",
+                        "last_name": "",
+                        "display_name": "Embarcadero Market & Deli",
+                        "email": "buyer@embarcaderodeli.com",
+                        "phone": "415-555-6687",
+                        "mobile": "",
+                        "fax": "",
+                        "website": "https://wherefour.com",
+                        "note": "",
+                        "kind": "retailer",
+                        "created_at": "2020-09-11T13:57:46.742Z",
+                        "updated_at": "2020-09-11T13:57:46.742Z",
+                        "custom_field_1": "",
+                        "custom_field_2": "",
+                        "custom_field_3": "",
+                        "custom_field_4": "",
+                        "business_license_number": "",
+                        "payment_terms": "Net 30",
+                        "salesperson": "",
+                        "delivery_method": "Route: Embarcadero North"
+                      },
+                      "delivery_method": {
+                        "id": 1,
+                        "name": "UPS Ground",
+                        "kind": "shipping",
+                        "instructions": ""
+                      },
+                      "salesperson": "",
+                      "payment_term": "",
+                      "quote_items": [
+                        {
+                          "id": 1,
+                          "name": "Chocolate bar",
+                          "inventory_id": 4,
+                          "category_name": "Products",
+                          "count": "20.0",
+                          "cost": "2.5",
+                          "sku": "SK0001",
+                          "created_at": "2020-09-11T13:57:47.050Z",
+                          "updated_at": "2020-09-11T13:57:47.050Z"
+                        },
+                        {
+                          "id": 2,
+                          "name": "Chocolate bar, finished case",
+                          "inventory_id": 6,
+                          "category_name": "Products",
+                          "count": "10.0",
+                          "cost": "25.0",
+                          "sku": "SK0002",
+                          "created_at": "2020-09-11T13:57:47.050Z",
+                          "updated_at": "2020-09-11T13:57:47.050Z"
+                        },
+                        {
+                          "id": 12,
+                          "name": "Bulk chocolate",
+                          "inventory_id": 3,
+                          "category_name": "Ingredients",
+                          "count": "0.0",
+                          "cost": "0.0",
+                          "sku": null,
+                          "created_at": "2020-09-12T16:22:26.858Z",
+                          "updated_at": "2020-09-12T16:22:26.858Z"
+                        },
+                        {
+                          "id": 13,
+                          "name": "Chocolate bar",
+                          "inventory_id": 4,
+                          "category_name": "Products",
+                          "count": "0.0",
+                          "cost": "0.0",
+                          "sku": "SK0001",
+                          "created_at": "2020-09-12T16:22:26.863Z",
+                          "updated_at": "2020-09-12T16:22:26.863Z"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "Get a quote"
+      },
+      "x-last-modified": 1599932512601,
+      "parameters": [
+        {
+          "name": "quote_id",
+          "in": "path",
+          "example": "",
+          "required": true,
+          "deprecated": false,
+          "description": "ID for the quote record",
+          "x-last-modified": 1599932539854,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ]
+    },
+    "/customers/quotes/{customer_id}": {
+      "summary": "Create quote",
+      "description": "Creates a new quote for a customer",
+      "post": {
+        "tags": [
+          "Quotes"
+        ],
+        "description": "Creates a new quote for the customer.",
+        "summary": "Create Quote",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              },
+              "examples": {
+                "Example": {
+                  "value": {
+                    "quote_number": "QO100",
+                    "quote_date": "2020-09-04",
+                    "expiration_date": "2020-09-04",
+                    "payment_term_id": null,
+                    "status": "open",
+                    "salesperson_id": null,
+                    "payment_terms": null,
+                    "delivery_method_id": 1,
+                    "instructions": null,
+                    "subtotal": 100,
+                    "discount": 0,
+                    "tax": 0,
+                    "shipping": 0,
+                    "total": 0,
+                    "quote_items_attributes": [
+                      {
+                        "inventory_id": 4,
+                        "count": 10,
+                        "unit_price": 100,
+                        "override_unit_price": 0
+                      },
+                      {
+                        "inventory_id": 6,
+                        "count": 5,
+                        "unit_price": 0,
+                        "override_unit_price": 0
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/quote"
+                },
+                "examples": {
+                  "Example": {
+                    "value": {
+                      "id": 14,
+                      "quote_date": "2020-09-04",
+                      "expiration_date": "2020-09-04",
+                      "po_number": "12345",
+                      "status": "open",
+                      "instructions": "",
+                      "subtotal": "100.0",
+                      "discount": "0.0",
+                      "tax": "0.0",
+                      "shipping": "0.0",
+                      "total": "0.0",
+                      "quote_number": "QO100",
+                      "created_at": "2020-09-12T18:25:54.054Z",
+                      "updated_at": "2020-09-12T18:25:54.054Z",
+                      "customer": {
+                        "id": 1,
+                        "first_name": "",
+                        "last_name": "",
+                        "display_name": "Embarcadero Market & Deli",
+                        "email": "buyer@embarcaderodeli.com",
+                        "phone": "415-555-6687",
+                        "mobile": "",
+                        "fax": "",
+                        "website": "https://wherefour.com",
+                        "note": "",
+                        "kind": "retailer",
+                        "created_at": "2020-09-11T13:57:46.742Z",
+                        "updated_at": "2020-09-11T13:57:46.742Z",
+                        "custom_field_1": "",
+                        "custom_field_2": "",
+                        "custom_field_3": "",
+                        "custom_field_4": "",
+                        "business_license_number": "",
+                        "payment_terms": "Net 30",
+                        "salesperson": "",
+                        "delivery_method": "Route: Embarcadero North",
+                        "billing_address": {
+                          "id": 1,
+                          "line1": "1142 Main Street",
+                          "line2": "Suite 100",
+                          "line3": "",
+                          "line4": "",
+                          "line5": "",
+                          "city": "San Francisco",
+                          "country_subdivision_code": "CA",
+                          "postal_code": "94455",
+                          "country": "",
+                          "created_at": "2020-09-11T13:57:46.802Z",
+                          "updated_at": "2020-09-11T13:57:46.802Z"
+                        },
+                        "shipping_address": {
+                          "id": 2,
+                          "line1": "415 S. Pine Street",
+                          "line2": "Suite 210",
+                          "line3": "Apt. G",
+                          "line4": "",
+                          "line5": "",
+                          "city": "Petaluma",
+                          "country_subdivision_code": "CA",
+                          "postal_code": "94954",
+                          "country": "",
+                          "created_at": "2020-09-11T13:57:46.802Z",
+                          "updated_at": "2020-09-11T13:57:46.802Z"
+                        }
+                      },
+                      "delivery_method": {
+                        "id": 1,
+                        "name": "UPS Ground",
+                        "kind": "shipping",
+                        "instructions": ""
+                      },
+                      "salesperson": "",
+                      "payment_term": "",
+                      "quote_items": [
+                        {
+                          "id": 28,
+                          "name": "Chocolate bar",
+                          "inventory_id": 4,
+                          "category_name": "Products",
+                          "count": "10.0",
+                          "cost": "0.0",
+                          "sku": "SK0001",
+                          "created_at": "2020-09-12T18:25:54.062Z",
+                          "updated_at": "2020-09-12T18:25:54.062Z",
+                          "inventory": {
+                            "id": 4,
+                            "name": "Chocolate bar",
+                            "category_name": "Products",
+                            "on_hand": "1165.0",
+                            "unit_of_use": "each",
+                            "unit_of_purchase": "each",
+                            "purchase_conversion": "1.0",
+                            "property": "finished_good",
+                            "sku": "SK0001",
+                            "pull_strategy": "FEFO",
+                            "reorder_point": "0.0",
+                            "lead_time": 0,
+                            "retired": false,
+                            "waste_percentage": "0.0",
+                            "created_at": "2020-09-11T13:57:46.825Z",
+                            "updated_at": "2020-09-11T13:57:46.825Z"
+                          }
+                        },
+                        {
+                          "id": 29,
+                          "name": "Chocolate bar, finished case",
+                          "inventory_id": 6,
+                          "category_name": "Products",
+                          "count": "5.0",
+                          "cost": "0.0",
+                          "sku": "SK0002",
+                          "created_at": "2020-09-12T18:25:54.066Z",
+                          "updated_at": "2020-09-12T18:25:54.066Z",
+                          "inventory": {
+                            "id": 6,
+                            "name": "Chocolate bar, finished case",
+                            "category_name": "Products",
+                            "on_hand": "0.0",
+                            "unit_of_use": "case",
+                            "unit_of_purchase": "case",
+                            "purchase_conversion": "1.0",
+                            "property": "finished_good",
+                            "sku": "SK0002",
+                            "pull_strategy": "FIFO",
+                            "reorder_point": "0.0",
+                            "lead_time": 0,
+                            "retired": false,
+                            "waste_percentage": "0.0",
+                            "created_at": "2020-09-11T13:57:46.825Z",
+                            "updated_at": "2020-09-11T13:57:46.825Z"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "Example": {
+                    "value": [
+                      {
+                        "id": 14,
+                        "quote_date": "2020-09-04",
+                        "expiration_date": "2020-09-04",
+                        "po_number": "12345",
+                        "status": "open",
+                        "instructions": null,
+                        "subtotal": "100.0",
+                        "discount": "0.0",
+                        "tax": "0.0",
+                        "shipping": "0.0",
+                        "total": "0.0",
+                        "quote_number": "QO100",
+                        "created_at": "2020-09-12T18:25:54.054Z",
+                        "updated_at": "2020-09-12T18:25:54.054Z",
+                        "customer": {
+                          "id": 1,
+                          "first_name": "",
+                          "last_name": "",
+                          "display_name": "Embarcadero Market & Deli",
+                          "email": "buyer@embarcaderodeli.com",
+                          "phone": "415-555-6687",
+                          "mobile": "",
+                          "fax": "",
+                          "website": "https://wherefour.com",
+                          "note": null,
+                          "kind": "retailer",
+                          "created_at": "2020-09-11T13:57:46.742Z",
+                          "updated_at": "2020-09-11T13:57:46.742Z",
+                          "custom_field_1": null,
+                          "custom_field_2": null,
+                          "custom_field_3": null,
+                          "custom_field_4": null,
+                          "business_license_number": null,
+                          "payment_terms": "Net 30",
+                          "salesperson": null,
+                          "delivery_method": "Route: Embarcadero North",
+                          "billing_address": {
+                            "id": 1,
+                            "line1": "1142 Main Street",
+                            "line2": "Suite 100",
+                            "line3": null,
+                            "line4": null,
+                            "line5": null,
+                            "city": "San Francisco",
+                            "country_subdivision_code": "CA",
+                            "postal_code": "94455",
+                            "country": null,
+                            "created_at": "2020-09-11T13:57:46.802Z",
+                            "updated_at": "2020-09-11T13:57:46.802Z"
+                          },
+                          "shipping_address": {
+                            "id": 2,
+                            "line1": "415 S. Pine Street",
+                            "line2": "Suite 210",
+                            "line3": "Apt. G",
+                            "line4": null,
+                            "line5": null,
+                            "city": "Petaluma",
+                            "country_subdivision_code": "CA",
+                            "postal_code": "94954",
+                            "country": null,
+                            "created_at": "2020-09-11T13:57:46.802Z",
+                            "updated_at": "2020-09-11T13:57:46.802Z"
+                          }
+                        },
+                        "delivery_method": {
+                          "id": 1,
+                          "name": "UPS Ground",
+                          "kind": "shipping",
+                          "instructions": null
+                        },
+                        "salesperson": null,
+                        "payment_term": null,
+                        "quote_items": [
+                          {
+                            "id": 28,
+                            "name": "Chocolate bar",
+                            "inventory_id": 4,
+                            "category_name": "Products",
+                            "count": "10.0",
+                            "cost": "0.0",
+                            "sku": "SK0001",
+                            "created_at": "2020-09-12T18:25:54.062Z",
+                            "updated_at": "2020-09-12T18:25:54.062Z",
+                            "inventory": {
+                              "id": 4,
+                              "name": "Chocolate bar",
+                              "category_name": "Products",
+                              "on_hand": "1165.0",
+                              "unit_of_use": "each",
+                              "unit_of_purchase": "each",
+                              "purchase_conversion": "1.0",
+                              "property": "finished_good",
+                              "sku": "SK0001",
+                              "pull_strategy": "FEFO",
+                              "reorder_point": "0.0",
+                              "lead_time": 0,
+                              "retired": false,
+                              "waste_percentage": "0.0",
+                              "created_at": "2020-09-11T13:57:46.825Z",
+                              "updated_at": "2020-09-11T13:57:46.825Z"
+                            }
+                          },
+                          {
+                            "id": 29,
+                            "name": "Chocolate bar, finished case",
+                            "inventory_id": 6,
+                            "category_name": "Products",
+                            "count": "5.0",
+                            "cost": "0.0",
+                            "sku": "SK0002",
+                            "created_at": "2020-09-12T18:25:54.066Z",
+                            "updated_at": "2020-09-12T18:25:54.066Z",
+                            "inventory": {
+                              "id": 6,
+                              "name": "Chocolate bar, finished case",
+                              "category_name": "Products",
+                              "on_hand": "0.0",
+                              "unit_of_use": "case",
+                              "unit_of_purchase": "case",
+                              "purchase_conversion": "1.0",
+                              "property": "finished_good",
+                              "sku": "SK0002",
+                              "pull_strategy": "FIFO",
+                              "reorder_point": "0.0",
+                              "lead_time": 0,
+                              "retired": false,
+                              "waste_percentage": "0.0",
+                              "created_at": "2020-09-11T13:57:46.825Z",
+                              "updated_at": "2020-09-11T13:57:46.825Z"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "Create a quote"
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "integer"
+          },
+          "name": "customer_id",
+          "in": "path",
+          "required": true,
+          "description": "customer record ID"
+        }
+      ],
+      "x-last-modified": 1599932642974
+    },
+    "/quotes/search": {
+      "summary": "Search for a quote",
+      "description": "Locates a quote by the quote_number",
+      "get": {
+        "tags": [
+          "Quotes"
+        ],
+        "description": "Locates a quote by the quote_number",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              },
+              "examples": {
+                "Example": {
+                  "value": {
+                    "quote_number": "QO1"
+                  }
+                }
+              }
+            }
+          },
+          "description": ""
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/quote"
+                },
+                "examples": {
+                  "Example": {
+                    "value": {
+                      "id": 1,
+                      "quote_date": "2020-09-04",
+                      "expiration_date": "2020-09-04",
+                      "status": "invoiced",
+                      "salesperson_id": null,
+                      "delivery_method_id": 1,
+                      "instructions": "",
+                      "subtotal": "300.0",
+                      "discount": "10.0",
+                      "tax": "0.00",
+                      "shipping": "25.0",
+                      "total": "315.0",
+                      "quote_number": "QO1",
+                      "payment_term_id": 1,
+                      "created_at": "2020-07-16T19:49:19.481Z",
+                      "updated_at": "2020-07-16T19:49:19.481Z",
+                      "customer": {
+                        "id": 1,
+                        "first_name": "",
+                        "last_name": "",
+                        "display_name": "Embarcadero Market & Deli",
+                        "email": "buyer@embarcaderodeli.com",
+                        "phone": "415-555-6687",
+                        "mobile": "",
+                        "fax": "",
+                        "website": "https://wherefour.com",
+                        "note": "",
+                        "kind": "retailer",
+                        "created_at": "2020-07-16T19:49:19.394Z",
+                        "updated_at": "2020-07-16T19:49:19.394Z",
+                        "custom_field_1": "",
+                        "custom_field_2": "",
+                        "custom_field_3": "",
+                        "custom_field_4": "",
+                        "business_license_number": "",
+                        "payment_terms": "Net 30",
+                        "salesperson": "",
+                        "delivery_method": "Route: Embarcadero North"
+                      },
+                      "quote_items": [
+                        {
+                          "id": 1,
+                          "name": "Chocolate bar",
+                          "category_name": "Products",
+                          "count": "20.0",
+                          "cost": "2.5",
+                          "sku": "SK0001",
+                          "created_at": "2020-07-16T19:49:19.640Z",
+                          "updated_at": "2020-07-16T19:49:19.640Z"
+                        },
+                        {
+                          "id": 2,
+                          "name": "Chocolate bar, finished case",
+                          "category_name": "Products",
+                          "count": "10.0",
+                          "cost": "25.0",
+                          "sku": "SK0002",
+                          "created_at": "2020-07-16T19:49:19.640Z",
+                          "updated_at": "2020-07-16T19:49:19.640Z"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Search for quote",
+        "operationId": "Search quotes"
+      },
+      "x-last-modified": 1599932689439,
+      "parameters": [
+        {
+          "name": "quote_number",
+          "in": "query",
+          "example": "{\n\t\"quote_number\": \"QO1\"\n}",
+          "required": false,
+          "deprecated": false,
+          "allowEmptyValue": false,
+          "description": "The quote number in Wherefour to locate. All quotes with matching results will be returned.",
+          "x-last-modified": 1599932780912
+        }
+      ]
+    },
+    "quotes": {
+      "summary": "List quotes",
+      "description": "Returns a paginated list of all quotes.",
+      "get": {
+        "tags": [
+          "Quotes"
+        ],
+        "summary": "List Quotes",
+        "description": "Returns a paginated list of all quotes.",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/quote"
+                },
+                "examples": {
+                  "Example": {
+                    "value": {
+                      "id": 6,
+                      "quote_date": "2020-09-04",
+                      "expiration_date": "2020-09-04",
+                      "status": "open",
+                      "salesperson_id": null,
+                      "salesperson_name": "",
+                      "delivery_method_id": 1,
+                      "instructions": "",
+                      "subtotal": "100.0",
+                      "discount": "0.0",
+                      "tax": "0.0",
+                      "shipping": "0.0",
+                      "total": "0.0",
+                      "quote_number": "QO100",
+                      "payment_term_id": null,
+                      "created_at": "2020-09-12T16:13:45.549Z",
+                      "updated_at": "2020-09-12T16:13:45.549Z",
+                      "customer": {
+                        "id": 1,
+                        "first_name": "",
+                        "last_name": "",
+                        "display_name": "Embarcadero Market & Deli",
+                        "email": "buyer@embarcaderodeli.com",
+                        "phone": "415-555-6687",
+                        "mobile": "",
+                        "fax": "",
+                        "website": "https://wherefour.com",
+                        "note": "",
+                        "kind": "retailer",
+                        "created_at": "2020-09-11T13:57:46.742Z",
+                        "updated_at": "2020-09-11T13:57:46.742Z",
+                        "custom_field_1": "",
+                        "custom_field_2": "",
+                        "custom_field_3": "",
+                        "custom_field_4": "",
+                        "business_license_number": "",
+                        "payment_terms": "Net 30",
+                        "salesperson": "",
+                        "delivery_method": "Route: Embarcadero North",
+                        "billing_address": {
+                          "id": 1,
+                          "line1": "1142 Main Street",
+                          "line2": "Suite 100",
+                          "line3": "",
+                          "line4": "",
+                          "line5": "",
+                          "city": "San Francisco",
+                          "country_subdivision_code": "CA",
+                          "postal_code": "94455",
+                          "country": "",
+                          "created_at": "2020-09-11T13:57:46.802Z",
+                          "updated_at": "2020-09-11T13:57:46.802Z"
+                        },
+                        "shipping_address": {
+                          "id": 2,
+                          "line1": "415 S. Pine Street",
+                          "line2": "Suite 210",
+                          "line3": "Apt. G",
+                          "line4": "",
+                          "line5": "",
+                          "city": "Petaluma",
+                          "country_subdivision_code": "CA",
+                          "postal_code": "94954",
+                          "country": "",
+                          "created_at": "2020-09-11T13:57:46.802Z",
+                          "updated_at": "2020-09-11T13:57:46.802Z"
+                        }
+                      },
+                      "quote_items": [
+                        {
+                          "id": 10,
+                          "name": "Chocolate bar",
+                          "inventory_id": 4,
+                          "category_name": "Products",
+                          "count": "0.0",
+                          "cost": "0.0",
+                          "sku": "SK0001",
+                          "created_at": "2020-09-12T16:13:45.568Z",
+                          "updated_at": "2020-09-12T16:13:45.568Z",
+                          "inventory": {
+                            "id": 4,
+                            "name": "Chocolate bar",
+                            "category_name": "Products",
+                            "on_hand": "75.0",
+                            "unit_of_use": "each",
+                            "unit_of_purchase": "each",
+                            "property": "finished_good",
+                            "sku": "SK0001",
+                            "created_at": "2020-09-11T13:57:46.825Z",
+                            "updated_at": "2020-09-11T13:57:46.825Z"
+                          }
+                        },
+                        {
+                          "id": 11,
+                          "name": "Chocolate bar, finished case",
+                          "inventory_id": 6,
+                          "category_name": "Products",
+                          "count": "0.0",
+                          "cost": "0.0",
+                          "sku": "SK0002",
+                          "created_at": "2020-09-12T16:13:45.574Z",
+                          "updated_at": "2020-09-12T16:13:45.574Z",
+                          "inventory": {
+                            "id": 6,
+                            "name": "Chocolate bar, finished case",
+                            "category_name": "Products",
+                            "on_hand": "40.0",
+                            "unit_of_use": "case",
+                            "unit_of_purchase": "case",
+                            "property": "finished_good",
+                            "sku": "SK0002",
+                            "created_at": "2020-09-11T13:57:46.825Z",
+                            "updated_at": "2020-09-11T13:57:46.825Z"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "List quotes"
+      },
+      "x-last-modified": 1599932864561,
+      "parameters": []
+    },
+    "/customers/{customer_id}/invoices/{invoice_id}": {
+      "summary": "Update invoice",
+      "description": "Updates an existing invoice",
+      "parameters": [
+        {
+          "schema": {
+            "type": "integer"
+          },
+          "name": "invoice_id",
+          "in": "path",
+          "required": true,
+          "description": "invoice record ID"
+        },
+        {
+          "schema": {
+            "type": "integer"
+          },
+          "name": "customer_id",
+          "in": "path",
+          "required": true,
+          "description": "customer record ID"
+        }
+      ],
+      "x-last-modified": 1599932318858,
+      "patch": {
+        "summary": "Update Invoice",
+        "operationId": "Update an invoice",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/invoice"
+                },
+                "examples": {
+                  "Example": {
+                    "value": {
+                      "id": 6,
+                      "invoice_date": "2020-09-04",
+                      "status": "draft",
+                      "subtotal": "100.0",
+                      "discount": "0.0",
+                      "tax": "0.0",
+                      "shipping": "0.0",
+                      "total": "0.0",
+                      "invoice_number": "INV100",
+                      "created_at": "2020-09-12T16:13:45.549Z",
+                      "updated_at": "2020-09-12T16:13:45.549Z",
+                      "customer": {
+                        "id": 1,
+                        "first_name": "",
+                        "last_name": "",
+                        "display_name": "Embarcadero Market & Deli",
+                        "email": "buyer@embarcaderodeli.com",
+                        "phone": "415-555-6687",
+                        "mobile": "",
+                        "fax": "",
+                        "website": "https://wherefour.com",
+                        "kind": "retailer",
+                        "created_at": "2020-09-11T13:57:46.742Z",
+                        "updated_at": "2020-09-11T13:57:46.742Z",
+                        "payment_terms": "Net 30",
+                        "delivery_method": "Route: Embarcadero North",
+                        "billing_address": {
+                          "id": 1,
+                          "line1": "1142 Main Street",
+                          "line2": "Suite 100",
+                          "city": "San Francisco",
+                          "country_subdivision_code": "CA",
+                          "postal_code": "94455",
+                          "created_at": "2020-09-11T13:57:46.802Z",
+                          "updated_at": "2020-09-11T13:57:46.802Z"
+                        },
+                        "shipping_address": {
+                          "id": 2,
+                          "line1": "415 S. Pine Street",
+                          "line2": "Suite 210",
+                          "line3": "Apt. G",
+                          "city": "Petaluma",
+                          "country_subdivision_code": "CA",
+                          "postal_code": "94954",
+                          "created_at": "2020-09-11T13:57:46.802Z",
+                          "updated_at": "2020-09-11T13:57:46.802Z"
+                        }
+                      },
+                      "delivery_method": {
+                        "id": 1,
+                        "name": "UPS Ground",
+                        "kind": "shipping"
+                      },
+                      "invoice_items": [
+                        {
+                          "id": 10,
+                          "name": "Chocolate bar",
+                          "inventory_id": 4,
+                          "category_name": "Products",
+                          "count": "0.0",
+                          "cost": "0.0",
+                          "sku": "SK0001",
+                          "created_at": "2020-09-12T16:13:45.568Z",
+                          "updated_at": "2020-09-12T16:13:45.568Z",
+                          "inventory": {
+                            "id": 4,
+                            "name": "Chocolate bar",
+                            "category_name": "Products",
+                            "on_hand": "75.0",
+                            "unit_of_use": "each",
+                            "unit_of_purchase": "each",
+                            "property": "finished_good",
+                            "sku": "SK0001",
+                            "created_at": "2020-09-11T13:57:46.825Z",
+                            "updated_at": "2020-09-11T13:57:46.825Z"
+                          }
+                        },
+                        {
+                          "id": 11,
+                          "name": "Chocolate bar, finished case",
+                          "inventory_id": 6,
+                          "category_name": "Products",
+                          "count": "0.0",
+                          "cost": "0.0",
+                          "sku": "SK0002",
+                          "created_at": "2020-09-12T16:13:45.574Z",
+                          "updated_at": "2020-09-12T16:13:45.574Z",
+                          "inventory": {
+                            "id": 6,
+                            "name": "Chocolate bar, finished case",
+                            "category_name": "Products",
+                            "on_hand": "40.0",
+                            "unit_of_use": "case",
+                            "unit_of_purchase": "case",
+                            "property": "finished_good",
+                            "sku": "SK0002",
+                            "created_at": "2020-09-11T13:57:46.825Z",
+                            "updated_at": "2020-09-11T13:57:46.825Z"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/invoice"
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "id": 6,
+                      "invoice_date": "2020-09-04",
+                      "status": "accepted",
+                      "subtotal": "100.0",
+                      "discount": "0.0",
+                      "tax": "0.0",
+                      "shipping": "0.0",
+                      "total": "0.0",
+                      "invoice_number": "INV100",
+                      "created_at": "2020-09-12T16:13:45.549Z",
+                      "updated_at": "2020-09-12T16:13:45.549Z",
+                      "customer": {
+                        "id": 1,
+                        "first_name": "",
+                        "last_name": "",
+                        "display_name": "Embarcadero Market & Deli",
+                        "email": "buyer@embarcaderodeli.com",
+                        "phone": "415-555-6687",
+                        "mobile": "",
+                        "fax": "",
+                        "website": "https://wherefour.com",
+                        "kind": "retailer",
+                        "created_at": "2020-09-11T13:57:46.742Z",
+                        "updated_at": "2020-09-11T13:57:46.742Z",
+                        "payment_terms": "Net 30",
+                        "delivery_method": "Route: Embarcadero North",
+                        "billing_address": {
+                          "id": 1,
+                          "line1": "1142 Main Street",
+                          "line2": "Suite 100",
+                          "city": "San Francisco",
+                          "country_subdivision_code": "CA",
+                          "postal_code": "94455",
+                          "created_at": "2020-09-11T13:57:46.802Z",
+                          "updated_at": "2020-09-11T13:57:46.802Z"
+                        },
+                        "shipping_address": {
+                          "id": 2,
+                          "line1": "415 S. Pine Street",
+                          "line2": "Suite 210",
+                          "line3": "Apt. G",
+                          "city": "Petaluma",
+                          "country_subdivision_code": "CA",
+                          "postal_code": "94954",
+                          "created_at": "2020-09-11T13:57:46.802Z",
+                          "updated_at": "2020-09-11T13:57:46.802Z"
+                        }
+                      },
+                      "delivery_method": {
+                        "id": 1,
+                        "name": "UPS Ground",
+                        "kind": "shipping"
+                      },
+                      "invoice_items": [
+                        {
+                          "id": 10,
+                          "name": "Chocolate bar",
+                          "inventory_id": 4,
+                          "category_name": "Products",
+                          "count": "0.0",
+                          "cost": "0.0",
+                          "sku": "SK0001",
+                          "created_at": "2020-09-12T16:13:45.568Z",
+                          "updated_at": "2020-09-12T16:13:45.568Z",
+                          "inventory": {
+                            "id": 4,
+                            "name": "Chocolate bar",
+                            "category_name": "Products",
+                            "on_hand": "75.0",
+                            "unit_of_use": "each",
+                            "unit_of_purchase": "each",
+                            "property": "finished_good",
+                            "sku": "SK0001",
+                            "created_at": "2020-09-11T13:57:46.825Z",
+                            "updated_at": "2020-09-11T13:57:46.825Z"
+                          }
+                        },
+                        {
+                          "id": 11,
+                          "name": "Chocolate bar, finished case",
+                          "inventory_id": 6,
+                          "category_name": "Products",
+                          "count": "0.0",
+                          "cost": "0.0",
+                          "sku": "SK0002",
+                          "created_at": "2020-09-12T16:13:45.574Z",
+                          "updated_at": "2020-09-12T16:13:45.574Z",
+                          "inventory": {
+                            "id": 6,
+                            "name": "Chocolate bar, finished case",
+                            "category_name": "Products",
+                            "on_hand": "40.0",
+                            "unit_of_use": "case",
+                            "unit_of_purchase": "case",
+                            "property": "finished_good",
+                            "sku": "SK0002",
+                            "created_at": "2020-09-11T13:57:46.825Z",
+                            "updated_at": "2020-09-11T13:57:46.825Z"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "description": "Updates an existing invoice",
+        "tags": [
+          "Invoices"
+        ]
+      }
+    },
+    "/invoices/{invoice_id}": {
+      "summary": "Get a invoice",
+      "description": "Retrieves an invoice record by ID",
+      "get": {
+        "tags": [
+          "Invoices"
+        ],
+        "summary": "Get Invoice",
+        "description": "Retrieves a invoice record by ID",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/invoice"
+                },
+                "examples": {
+                  "Example": {
+                    "value": {
+                      "id": 1,
+                      "invoice_date": "2020-09-04",
+                      "status": "complete",
+                      "salesperson_id": null,
+                      "salesperson_name": null,
+                      "delivery_method_id": 1,
+                      "instructions": "",
+                      "subtotal": "100.0",
+                      "discount": "0.0",
+                      "tax": "0.0",
+                      "shipping": "0.0",
+                      "total": "0.0",
+                      "invoice_number": "INV1",
+                      "payment_term_id": null,
+                      "created_at": "2020-09-11T13:57:46.842Z",
+                      "updated_at": "2020-09-12T16:22:26.851Z",
+                      "customer": {
+                        "id": 1,
+                        "first_name": "",
+                        "last_name": "",
+                        "display_name": "Embarcadero Market & Deli",
+                        "email": "buyer@embarcaderodeli.com",
+                        "phone": "415-555-6687",
+                        "mobile": "",
+                        "fax": "",
+                        "website": "https://wherefour.com",
+                        "note": "",
+                        "kind": "retailer",
+                        "created_at": "2020-09-11T13:57:46.742Z",
+                        "updated_at": "2020-09-11T13:57:46.742Z",
+                        "custom_field_1": "",
+                        "custom_field_2": "",
+                        "custom_field_3": "",
+                        "custom_field_4": "",
+                        "business_license_number": "",
+                        "payment_terms": "Net 30",
+                        "salesperson": "",
+                        "delivery_method": "Route: Embarcadero North"
+                      },
+                      "delivery_method": {
+                        "id": 1,
+                        "name": "UPS Ground",
+                        "kind": "shipping",
+                        "instructions": ""
+                      },
+                      "salesperson": "",
+                      "payment_term": "",
+                      "invoice_items": [
+                        {
+                          "id": 1,
+                          "name": "Chocolate bar",
+                          "inventory_id": 4,
+                          "category_name": "Products",
+                          "count": "20.0",
+                          "cost": "2.5",
+                          "sku": "SK0001",
+                          "created_at": "2020-09-11T13:57:47.050Z",
+                          "updated_at": "2020-09-11T13:57:47.050Z"
+                        },
+                        {
+                          "id": 2,
+                          "name": "Chocolate bar, finished case",
+                          "inventory_id": 6,
+                          "category_name": "Products",
+                          "count": "10.0",
+                          "cost": "25.0",
+                          "sku": "SK0002",
+                          "created_at": "2020-09-11T13:57:47.050Z",
+                          "updated_at": "2020-09-11T13:57:47.050Z"
+                        },
+                        {
+                          "id": 12,
+                          "name": "Bulk chocolate",
+                          "inventory_id": 3,
+                          "category_name": "Ingredients",
+                          "count": "0.0",
+                          "cost": "0.0",
+                          "sku": null,
+                          "created_at": "2020-09-12T16:22:26.858Z",
+                          "updated_at": "2020-09-12T16:22:26.858Z"
+                        },
+                        {
+                          "id": 13,
+                          "name": "Chocolate bar",
+                          "inventory_id": 4,
+                          "category_name": "Products",
+                          "count": "0.0",
+                          "cost": "0.0",
+                          "sku": "SK0001",
+                          "created_at": "2020-09-12T16:22:26.863Z",
+                          "updated_at": "2020-09-12T16:22:26.863Z"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "Get an invoice"
+      },
+      "x-last-modified": 1599932512601,
+      "parameters": [
+        {
+          "name": "invoice_id",
+          "in": "path",
+          "example": "",
+          "required": true,
+          "deprecated": false,
+          "description": "ID for the invoice record",
+          "x-last-modified": 1599932539854,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ]
+    },
+    "/customers/invoices/{customer_id}": {
+      "summary": "Create invoice",
+      "description": "Creates a new invoice for a customer",
+      "post": {
+        "tags": [
+          "Invoices"
+        ],
+        "description": "Creates a new invoice for the customer.",
+        "summary": "Create Invoice",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              },
+              "examples": {
+                "Example": {
+                  "value": {
+                    "invoice_number": "INV100",
+                    "invoice_date": "2020-09-04",
+                    "payment_term_id": null,
+                    "status": "open",
+                    "salesperson_id": null,
+                    "payment_terms": null,
+                    "delivery_method_id": 1,
+                    "instructions": null,
+                    "subtotal": 100,
+                    "discount": 0,
+                    "tax": 0,
+                    "shipping": 0,
+                    "total": 0,
+                    "invoice_items_attributes": [
+                      {
+                        "inventory_id": 4,
+                        "count": 10,
+                        "unit_price": 100,
+                        "override_unit_price": 0
+                      },
+                      {
+                        "inventory_id": 6,
+                        "count": 5,
+                        "unit_price": 0,
+                        "override_unit_price": 0
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/invoice"
+                },
+                "examples": {
+                  "Example": {
+                    "value": {
+                      "id": 14,
+                      "invoice_date": "2020-09-04",
+                      "po_number": "12345",
+                      "status": "open",
+                      "instructions": "",
+                      "subtotal": "100.0",
+                      "discount": "0.0",
+                      "tax": "0.0",
+                      "shipping": "0.0",
+                      "total": "0.0",
+                      "invoice_number": "INV100",
+                      "created_at": "2020-09-12T18:25:54.054Z",
+                      "updated_at": "2020-09-12T18:25:54.054Z",
+                      "customer": {
+                        "id": 1,
+                        "first_name": "",
+                        "last_name": "",
+                        "display_name": "Embarcadero Market & Deli",
+                        "email": "buyer@embarcaderodeli.com",
+                        "phone": "415-555-6687",
+                        "mobile": "",
+                        "fax": "",
+                        "website": "https://wherefour.com",
+                        "note": "",
+                        "kind": "retailer",
+                        "created_at": "2020-09-11T13:57:46.742Z",
+                        "updated_at": "2020-09-11T13:57:46.742Z",
+                        "custom_field_1": "",
+                        "custom_field_2": "",
+                        "custom_field_3": "",
+                        "custom_field_4": "",
+                        "business_license_number": "",
+                        "payment_terms": "Net 30",
+                        "salesperson": "",
+                        "delivery_method": "Route: Embarcadero North",
+                        "billing_address": {
+                          "id": 1,
+                          "line1": "1142 Main Street",
+                          "line2": "Suite 100",
+                          "line3": "",
+                          "line4": "",
+                          "line5": "",
+                          "city": "San Francisco",
+                          "country_subdivision_code": "CA",
+                          "postal_code": "94455",
+                          "country": "",
+                          "created_at": "2020-09-11T13:57:46.802Z",
+                          "updated_at": "2020-09-11T13:57:46.802Z"
+                        },
+                        "shipping_address": {
+                          "id": 2,
+                          "line1": "415 S. Pine Street",
+                          "line2": "Suite 210",
+                          "line3": "Apt. G",
+                          "line4": "",
+                          "line5": "",
+                          "city": "Petaluma",
+                          "country_subdivision_code": "CA",
+                          "postal_code": "94954",
+                          "country": "",
+                          "created_at": "2020-09-11T13:57:46.802Z",
+                          "updated_at": "2020-09-11T13:57:46.802Z"
+                        }
+                      },
+                      "delivery_method": {
+                        "id": 1,
+                        "name": "UPS Ground",
+                        "kind": "shipping",
+                        "instructions": ""
+                      },
+                      "salesperson": "",
+                      "payment_term": "",
+                      "invoice_items": [
+                        {
+                          "id": 28,
+                          "name": "Chocolate bar",
+                          "inventory_id": 4,
+                          "category_name": "Products",
+                          "count": "10.0",
+                          "cost": "0.0",
+                          "sku": "SK0001",
+                          "created_at": "2020-09-12T18:25:54.062Z",
+                          "updated_at": "2020-09-12T18:25:54.062Z",
+                          "inventory": {
+                            "id": 4,
+                            "name": "Chocolate bar",
+                            "category_name": "Products",
+                            "on_hand": "1165.0",
+                            "unit_of_use": "each",
+                            "unit_of_purchase": "each",
+                            "purchase_conversion": "1.0",
+                            "property": "finished_good",
+                            "sku": "SK0001",
+                            "pull_strategy": "FEFO",
+                            "reorder_point": "0.0",
+                            "lead_time": 0,
+                            "retired": false,
+                            "waste_percentage": "0.0",
+                            "created_at": "2020-09-11T13:57:46.825Z",
+                            "updated_at": "2020-09-11T13:57:46.825Z"
+                          }
+                        },
+                        {
+                          "id": 29,
+                          "name": "Chocolate bar, finished case",
+                          "inventory_id": 6,
+                          "category_name": "Products",
+                          "count": "5.0",
+                          "cost": "0.0",
+                          "sku": "SK0002",
+                          "created_at": "2020-09-12T18:25:54.066Z",
+                          "updated_at": "2020-09-12T18:25:54.066Z",
+                          "inventory": {
+                            "id": 6,
+                            "name": "Chocolate bar, finished case",
+                            "category_name": "Products",
+                            "on_hand": "0.0",
+                            "unit_of_use": "case",
+                            "unit_of_purchase": "case",
+                            "purchase_conversion": "1.0",
+                            "property": "finished_good",
+                            "sku": "SK0002",
+                            "pull_strategy": "FIFO",
+                            "reorder_point": "0.0",
+                            "lead_time": 0,
+                            "retired": false,
+                            "waste_percentage": "0.0",
+                            "created_at": "2020-09-11T13:57:46.825Z",
+                            "updated_at": "2020-09-11T13:57:46.825Z"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "Example": {
+                    "value": [
+                      {
+                        "id": 14,
+                        "invoice)date": "2020-09-04",
+                        "po_number": "12345",
+                        "status": "open",
+                        "instructions": null,
+                        "subtotal": "100.0",
+                        "discount": "0.0",
+                        "tax": "0.0",
+                        "shipping": "0.0",
+                        "total": "0.0",
+                        "invoice_number": "INV100",
+                        "created_at": "2020-09-12T18:25:54.054Z",
+                        "updated_at": "2020-09-12T18:25:54.054Z",
+                        "customer": {
+                          "id": 1,
+                          "first_name": "",
+                          "last_name": "",
+                          "display_name": "Embarcadero Market & Deli",
+                          "email": "buyer@embarcaderodeli.com",
+                          "phone": "415-555-6687",
+                          "mobile": "",
+                          "fax": "",
+                          "website": "https://wherefour.com",
+                          "note": null,
+                          "kind": "retailer",
+                          "created_at": "2020-09-11T13:57:46.742Z",
+                          "updated_at": "2020-09-11T13:57:46.742Z",
+                          "custom_field_1": null,
+                          "custom_field_2": null,
+                          "custom_field_3": null,
+                          "custom_field_4": null,
+                          "business_license_number": null,
+                          "payment_terms": "Net 30",
+                          "salesperson": null,
+                          "delivery_method": "Route: Embarcadero North",
+                          "billing_address": {
+                            "id": 1,
+                            "line1": "1142 Main Street",
+                            "line2": "Suite 100",
+                            "line3": null,
+                            "line4": null,
+                            "line5": null,
+                            "city": "San Francisco",
+                            "country_subdivision_code": "CA",
+                            "postal_code": "94455",
+                            "country": null,
+                            "created_at": "2020-09-11T13:57:46.802Z",
+                            "updated_at": "2020-09-11T13:57:46.802Z"
+                          },
+                          "shipping_address": {
+                            "id": 2,
+                            "line1": "415 S. Pine Street",
+                            "line2": "Suite 210",
+                            "line3": "Apt. G",
+                            "line4": null,
+                            "line5": null,
+                            "city": "Petaluma",
+                            "country_subdivision_code": "CA",
+                            "postal_code": "94954",
+                            "country": null,
+                            "created_at": "2020-09-11T13:57:46.802Z",
+                            "updated_at": "2020-09-11T13:57:46.802Z"
+                          }
+                        },
+                        "delivery_method": {
+                          "id": 1,
+                          "name": "UPS Ground",
+                          "kind": "shipping",
+                          "instructions": null
+                        },
+                        "salesperson": null,
+                        "payment_term": null,
+                        "invoice_items": [
+                          {
+                            "id": 28,
+                            "name": "Chocolate bar",
+                            "inventory_id": 4,
+                            "category_name": "Products",
+                            "count": "10.0",
+                            "cost": "0.0",
+                            "sku": "SK0001",
+                            "created_at": "2020-09-12T18:25:54.062Z",
+                            "updated_at": "2020-09-12T18:25:54.062Z",
+                            "inventory": {
+                              "id": 4,
+                              "name": "Chocolate bar",
+                              "category_name": "Products",
+                              "on_hand": "1165.0",
+                              "unit_of_use": "each",
+                              "unit_of_purchase": "each",
+                              "purchase_conversion": "1.0",
+                              "property": "finished_good",
+                              "sku": "SK0001",
+                              "pull_strategy": "FEFO",
+                              "reorder_point": "0.0",
+                              "lead_time": 0,
+                              "retired": false,
+                              "waste_percentage": "0.0",
+                              "created_at": "2020-09-11T13:57:46.825Z",
+                              "updated_at": "2020-09-11T13:57:46.825Z"
+                            }
+                          },
+                          {
+                            "id": 29,
+                            "name": "Chocolate bar, finished case",
+                            "inventory_id": 6,
+                            "category_name": "Products",
+                            "count": "5.0",
+                            "cost": "0.0",
+                            "sku": "SK0002",
+                            "created_at": "2020-09-12T18:25:54.066Z",
+                            "updated_at": "2020-09-12T18:25:54.066Z",
+                            "inventory": {
+                              "id": 6,
+                              "name": "Chocolate bar, finished case",
+                              "category_name": "Products",
+                              "on_hand": "0.0",
+                              "unit_of_use": "case",
+                              "unit_of_purchase": "case",
+                              "purchase_conversion": "1.0",
+                              "property": "finished_good",
+                              "sku": "SK0002",
+                              "pull_strategy": "FIFO",
+                              "reorder_point": "0.0",
+                              "lead_time": 0,
+                              "retired": false,
+                              "waste_percentage": "0.0",
+                              "created_at": "2020-09-11T13:57:46.825Z",
+                              "updated_at": "2020-09-11T13:57:46.825Z"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "Create a invoice"
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "integer"
+          },
+          "name": "customer_id",
+          "in": "path",
+          "required": true,
+          "description": "customer record ID"
+        }
+      ],
+      "x-last-modified": 1599932642974
+    },
+    "/invoices/search": {
+      "summary": "Search for a invoice",
+      "description": "Locates a invoice by the invoice_number",
+      "get": {
+        "tags": [
+          "Invoices"
+        ],
+        "description": "Locates a invoice by the invoice_number",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              },
+              "examples": {
+                "Example": {
+                  "value": {
+                    "invoice_number": "INV1"
+                  }
+                }
+              }
+            }
+          },
+          "description": ""
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/invoice"
+                },
+                "examples": {
+                  "Example": {
+                    "value": {
+                      "id": 1,
+                      "invoice_date": "2020-09-04",
+                      "status": "invoiced",
+                      "salesperson_id": null,
+                      "delivery_method_id": 1,
+                      "instructions": "",
+                      "subtotal": "300.0",
+                      "discount": "10.0",
+                      "tax": "0.00",
+                      "shipping": "25.0",
+                      "total": "315.0",
+                      "invoice_number": "INV1",
+                      "payment_term_id": 1,
+                      "created_at": "2020-07-16T19:49:19.481Z",
+                      "updated_at": "2020-07-16T19:49:19.481Z",
+                      "customer": {
+                        "id": 1,
+                        "first_name": "",
+                        "last_name": "",
+                        "display_name": "Embarcadero Market & Deli",
+                        "email": "buyer@embarcaderodeli.com",
+                        "phone": "415-555-6687",
+                        "mobile": "",
+                        "fax": "",
+                        "website": "https://wherefour.com",
+                        "note": "",
+                        "kind": "retailer",
+                        "created_at": "2020-07-16T19:49:19.394Z",
+                        "updated_at": "2020-07-16T19:49:19.394Z",
+                        "custom_field_1": "",
+                        "custom_field_2": "",
+                        "custom_field_3": "",
+                        "custom_field_4": "",
+                        "business_license_number": "",
+                        "payment_terms": "Net 30",
+                        "salesperson": "",
+                        "delivery_method": "Route: Embarcadero North"
+                      },
+                      "invoice_items": [
+                        {
+                          "id": 1,
+                          "name": "Chocolate bar",
+                          "category_name": "Products",
+                          "count": "20.0",
+                          "cost": "2.5",
+                          "sku": "SK0001",
+                          "created_at": "2020-07-16T19:49:19.640Z",
+                          "updated_at": "2020-07-16T19:49:19.640Z"
+                        },
+                        {
+                          "id": 2,
+                          "name": "Chocolate bar, finished case",
+                          "category_name": "Products",
+                          "count": "10.0",
+                          "cost": "25.0",
+                          "sku": "SK0002",
+                          "created_at": "2020-07-16T19:49:19.640Z",
+                          "updated_at": "2020-07-16T19:49:19.640Z"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Search for invoice",
+        "operationId": "Search invoices"
+      },
+      "x-last-modified": 1599932689439,
+      "parameters": [
+        {
+          "name": "invoice_number",
+          "in": "query",
+          "example": "{\n\t\"invoice_number\": \"INV1\"\n}",
+          "required": false,
+          "deprecated": false,
+          "allowEmptyValue": false,
+          "description": "The invoice number in Wherefour to locate. All invoices with matching results will be returned.",
+          "x-last-modified": 1599932780912
+        }
+      ]
+    },
+    "invoices": {
+      "summary": "List invoices",
+      "description": "Returns a paginated list of all invoices.",
+      "get": {
+        "tags": [
+          "Invoices"
+        ],
+        "summary": "List Invoices",
+        "description": "Returns a paginated list of all invoices.",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/invoice"
+                },
+                "examples": {
+                  "Example": {
+                    "value": {
+                      "id": 6,
+                      "invoice_date": "2020-09-04",
+                      "status": "open",
+                      "salesperson_id": null,
+                      "salesperson_name": "",
+                      "delivery_method_id": 1,
+                      "instructions": "",
+                      "subtotal": "100.0",
+                      "discount": "0.0",
+                      "tax": "0.0",
+                      "shipping": "0.0",
+                      "total": "0.0",
+                      "invoice_number": "INV100",
+                      "payment_term_id": null,
+                      "created_at": "2020-09-12T16:13:45.549Z",
+                      "updated_at": "2020-09-12T16:13:45.549Z",
+                      "customer": {
+                        "id": 1,
+                        "first_name": "",
+                        "last_name": "",
+                        "display_name": "Embarcadero Market & Deli",
+                        "email": "buyer@embarcaderodeli.com",
+                        "phone": "415-555-6687",
+                        "mobile": "",
+                        "fax": "",
+                        "website": "https://wherefour.com",
+                        "note": "",
+                        "kind": "retailer",
+                        "created_at": "2020-09-11T13:57:46.742Z",
+                        "updated_at": "2020-09-11T13:57:46.742Z",
+                        "custom_field_1": "",
+                        "custom_field_2": "",
+                        "custom_field_3": "",
+                        "custom_field_4": "",
+                        "business_license_number": "",
+                        "payment_terms": "Net 30",
+                        "salesperson": "",
+                        "delivery_method": "Route: Embarcadero North",
+                        "billing_address": {
+                          "id": 1,
+                          "line1": "1142 Main Street",
+                          "line2": "Suite 100",
+                          "line3": "",
+                          "line4": "",
+                          "line5": "",
+                          "city": "San Francisco",
+                          "country_subdivision_code": "CA",
+                          "postal_code": "94455",
+                          "country": "",
+                          "created_at": "2020-09-11T13:57:46.802Z",
+                          "updated_at": "2020-09-11T13:57:46.802Z"
+                        },
+                        "shipping_address": {
+                          "id": 2,
+                          "line1": "415 S. Pine Street",
+                          "line2": "Suite 210",
+                          "line3": "Apt. G",
+                          "line4": "",
+                          "line5": "",
+                          "city": "Petaluma",
+                          "country_subdivision_code": "CA",
+                          "postal_code": "94954",
+                          "country": "",
+                          "created_at": "2020-09-11T13:57:46.802Z",
+                          "updated_at": "2020-09-11T13:57:46.802Z"
+                        }
+                      },
+                      "invoice_items": [
+                        {
+                          "id": 10,
+                          "name": "Chocolate bar",
+                          "inventory_id": 4,
+                          "category_name": "Products",
+                          "count": "0.0",
+                          "cost": "0.0",
+                          "sku": "SK0001",
+                          "created_at": "2020-09-12T16:13:45.568Z",
+                          "updated_at": "2020-09-12T16:13:45.568Z",
+                          "inventory": {
+                            "id": 4,
+                            "name": "Chocolate bar",
+                            "category_name": "Products",
+                            "on_hand": "75.0",
+                            "unit_of_use": "each",
+                            "unit_of_purchase": "each",
+                            "property": "finished_good",
+                            "sku": "SK0001",
+                            "created_at": "2020-09-11T13:57:46.825Z",
+                            "updated_at": "2020-09-11T13:57:46.825Z"
+                          }
+                        },
+                        {
+                          "id": 11,
+                          "name": "Chocolate bar, finished case",
+                          "inventory_id": 6,
+                          "category_name": "Products",
+                          "count": "0.0",
+                          "cost": "0.0",
+                          "sku": "SK0002",
+                          "created_at": "2020-09-12T16:13:45.574Z",
+                          "updated_at": "2020-09-12T16:13:45.574Z",
+                          "inventory": {
+                            "id": 6,
+                            "name": "Chocolate bar, finished case",
+                            "category_name": "Products",
+                            "on_hand": "40.0",
+                            "unit_of_use": "case",
+                            "unit_of_purchase": "case",
+                            "property": "finished_good",
+                            "sku": "SK0002",
+                            "created_at": "2020-09-11T13:57:46.825Z",
+                            "updated_at": "2020-09-11T13:57:46.825Z"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "List invoices"
+      },
+      "x-last-modified": 1599932864561,
+      "parameters": []
+    },
     "/inventory/last_adjustment": {
       "get": {
         "summary": "Get Last Stock Lot Change",
@@ -3499,6 +5579,325 @@
         },
         "title": "Quote"
       },
+      "invoice": {
+        "type": "object",
+        "example": {
+          "id": 6,
+          "invoice_date": "2020-09-04",
+          "status": "draft",
+          "subtotal": "100.0",
+          "discount": "0.0",
+          "tax": "0.0",
+          "shipping": "0.0",
+          "total": "0.0",
+          "invoice_number": "INV100",
+          "created_at": "2020-09-12T16:13:45.549Z",
+          "updated_at": "2020-09-12T16:13:45.549Z",
+          "customer": {
+            "id": 1,
+            "first_name": "",
+            "last_name": "",
+            "display_name": "Embarcadero Market & Deli",
+            "email": "buyer@embarcaderodeli.com",
+            "phone": "415-555-6687",
+            "mobile": "",
+            "fax": "",
+            "website": "https://wherefour.com",
+            "kind": "retailer",
+            "created_at": "2020-09-11T13:57:46.742Z",
+            "updated_at": "2020-09-11T13:57:46.742Z",
+            "payment_terms": "Net 30",
+            "delivery_method": "Route: Embarcadero North",
+            "billing_address": {
+              "id": 1,
+              "line1": "1142 Main Street",
+              "line2": "Suite 100",
+              "city": "San Francisco",
+              "country_subdivision_code": "CA",
+              "postal_code": "94455",
+              "created_at": "2020-09-11T13:57:46.802Z",
+              "updated_at": "2020-09-11T13:57:46.802Z"
+            },
+            "shipping_address": {
+              "id": 2,
+              "line1": "415 S. Pine Street",
+              "line2": "Suite 210",
+              "line3": "Apt. G",
+              "city": "Petaluma",
+              "country_subdivision_code": "CA",
+              "postal_code": "94954",
+              "created_at": "2020-09-11T13:57:46.802Z",
+              "updated_at": "2020-09-11T13:57:46.802Z"
+            }
+          },
+          "delivery_method": {
+            "id": 1,
+            "name": "UPS Ground",
+            "kind": "shipping"
+          },
+          "invoice_items": [
+            {
+              "id": 10,
+              "name": "Chocolate bar",
+              "inventory_id": 4,
+              "category_name": "Products",
+              "count": "0.0",
+              "cost": "0.0",
+              "sku": "SK0001",
+              "created_at": "2020-09-12T16:13:45.568Z",
+              "updated_at": "2020-09-12T16:13:45.568Z",
+              "inventory": {
+                "id": 4,
+                "name": "Chocolate bar",
+                "category_name": "Products",
+                "on_hand": "75.0",
+                "unit_of_use": "each",
+                "unit_of_purchase": "each",
+                "property": "finished_good",
+                "sku": "SK0001",
+                "created_at": "2020-09-11T13:57:46.825Z",
+                "updated_at": "2020-09-11T13:57:46.825Z"
+              }
+            },
+            {
+              "id": 11,
+              "name": "Chocolate bar, finished case",
+              "inventory_id": 6,
+              "category_name": "Products",
+              "count": "0.0",
+              "cost": "0.0",
+              "sku": "SK0002",
+              "created_at": "2020-09-12T16:13:45.574Z",
+              "updated_at": "2020-09-12T16:13:45.574Z",
+              "inventory": {
+                "id": 6,
+                "name": "Chocolate bar, finished case",
+                "category_name": "Products",
+                "on_hand": "40.0",
+                "unit_of_use": "case",
+                "unit_of_purchase": "case",
+                "property": "finished_good",
+                "sku": "SK0002",
+                "created_at": "2020-09-11T13:57:46.825Z",
+                "updated_at": "2020-09-11T13:57:46.825Z"
+              }
+            }
+          ]
+        },
+        "x-last-modified": 1599928038583,
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "invoice_date": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "instructions": {
+            "type": "string"
+          },
+          "subtotal": {
+            "type": "string"
+          },
+          "discount": {
+            "type": "string"
+          },
+          "tax": {
+            "type": "string"
+          },
+          "shipping": {
+            "type": "string"
+          },
+          "total": {
+            "type": "string"
+          },
+          "invoice_number": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string"
+          },
+          "updated_at": {
+            "type": "string"
+          },
+          "customer": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer"
+              },
+              "first_name": {
+                "type": "string"
+              },
+              "last_name": {
+                "type": "string"
+              },
+              "display_name": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "phone": {
+                "type": "string"
+              },
+              "mobile": {
+                "type": "string"
+              },
+              "fax": {
+                "type": "string"
+              },
+              "website": {
+                "type": "string"
+              },
+              "note": {
+                "type": "string"
+              },
+              "kind": {
+                "type": "string"
+              },
+              "created_at": {
+                "type": "string"
+              },
+              "updated_at": {
+                "type": "string"
+              },
+              "custom_field_1": {
+                "type": "string"
+              },
+              "custom_field_2": {
+                "type": "string"
+              },
+              "custom_field_3": {
+                "type": "string"
+              },
+              "custom_field_4": {
+                "type": "string"
+              },
+              "business_license_number": {
+                "type": "string"
+              },
+              "payment_terms": {
+                "type": "string"
+              },
+              "salesperson": {
+                "type": "string"
+              },
+              "delivery_method": {
+                "type": "string"
+              },
+              "billing_address": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer"
+                  },
+                  "line1": {
+                    "type": "string"
+                  },
+                  "line2": {
+                    "type": "string"
+                  },
+                  "line3": {
+                    "type": "string"
+                  },
+                  "line4": {
+                    "type": "string"
+                  },
+                  "line5": {
+                    "type": "string"
+                  },
+                  "city": {
+                    "type": "string"
+                  },
+                  "country_subdivision_code": {
+                    "type": "string"
+                  },
+                  "postal_code": {
+                    "type": "string"
+                  },
+                  "country": {
+                    "type": "string"
+                  },
+                  "created_at": {
+                    "type": "string"
+                  },
+                  "updated_at": {
+                    "type": "string"
+                  }
+                }
+              },
+              "shipping_address": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer"
+                  },
+                  "line1": {
+                    "type": "string"
+                  },
+                  "line2": {
+                    "type": "string"
+                  },
+                  "line3": {
+                    "type": "string"
+                  },
+                  "line4": {
+                    "type": "string"
+                  },
+                  "line5": {
+                    "type": "string"
+                  },
+                  "city": {
+                    "type": "string"
+                  },
+                  "country_subdivision_code": {
+                    "type": "string"
+                  },
+                  "postal_code": {
+                    "type": "string"
+                  },
+                  "country": {
+                    "type": "string"
+                  },
+                  "created_at": {
+                    "type": "string"
+                  },
+                  "updated_at": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "delivery_method": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer"
+              },
+              "name": {
+                "type": "string"
+              },
+              "kind": {
+                "type": "string"
+              },
+              "instructions": {
+                "type": "string"
+              }
+            }
+          },
+          "salesperson": {
+            "type": "string"
+          },
+          "payment_term": {
+            "type": "string"
+          }
+        },
+        "title": "Invoice"
+      },
       "customer": {
         "type": "object",
         "properties": {
@@ -4799,7 +7198,13 @@
       "name": "Inventory"
     },
     {
+      "name": "Invoices"
+    },
+    {
       "name": "Orders"
+    },
+    {
+      "name": "Quotes"
     },
     {
       "name": "Shipments"
