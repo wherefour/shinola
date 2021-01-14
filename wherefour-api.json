@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "Wherefour API",
-    "version": "1.0.6",
+    "version": "1.0.7",
     "description": "API documentation for the Wherefour ERP/traceability platform. More information at: [wherefour.com](https://wherefour.com).",
     "termsOfService": "https://my.wherefour.com/terms_of_service",
     "contact": {
@@ -1371,6 +1371,9 @@
                   "tracking_number": {
                     "type": "string",
                     "description": "Tracking number to record for the shipment."
+                  },
+                  "ship_date": {
+                    "type": "string"
                   }
                 },
                 "required": [
@@ -1408,7 +1411,7 @@
           },
           "description": ""
         },
-        "description": "Performs a \"pick and ship\" for the specified order. Wherefour will auto-select available lot coded inventory, based on each inventory item's pull strategy, to fulfill the order. If not enough inventory is available, a partial shipment will be created. Results of the shipment, with the selected stock lots, will be returned.",
+        "description": "Performs a \"pick and ship\" for the specified order. Wherefour will auto-select available lot coded inventory, based on each inventory item's pull strategy, to fulfill the order. If the location is specified, only inventory at that location will be considered. If not enough inventory is available, a partial shipment will be created. Results of the shipment, with the selected stock lots, will be returned.\n\nThe optional ship_date param can be used to specify the timestamp of the shipment. Date/time should be in the format \"2021-02-02 12:00 AM\" and in the same time zone as the user's Wherefour settings.",
         "responses": {
           "200": {
             "description": "OK",
