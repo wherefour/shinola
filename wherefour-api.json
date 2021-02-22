@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "Wherefour API",
-    "version": "1.0.7",
+    "version": "1.0.8",
     "description": "API documentation for the Wherefour ERP/traceability platform. More information at: [wherefour.com](https://wherefour.com).",
     "termsOfService": "https://my.wherefour.com/terms_of_service",
     "contact": {
@@ -953,7 +953,315 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/order"
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number"
+                    },
+                    "order_date": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "produce_date": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "deliver_date": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "po_number": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "status": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "salesperson_id": {
+                      "type": "integer"
+                    },
+                    "salesperson_name": {
+                      "type": "integer"
+                    },
+                    "delivery_method_id": {
+                      "type": "number"
+                    },
+                    "instructions": {
+                      "type": "string"
+                    },
+                    "subtotal": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "discount": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "tax": {},
+                    "shipping": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "total": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "order_number": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "payment_term_id": {
+                      "type": "integer"
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "updated_at": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "invoiced_at": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "customer": {
+                      "type": "object",
+                      "required": [
+                        "id",
+                        "first_name",
+                        "last_name",
+                        "display_name",
+                        "email",
+                        "phone",
+                        "mobile",
+                        "fax",
+                        "website",
+                        "kind",
+                        "created_at",
+                        "updated_at",
+                        "payment_terms",
+                        "delivery_method",
+                        "billing_address",
+                        "shipping_address"
+                      ],
+                      "properties": {
+                        "id": {
+                          "type": "number"
+                        },
+                        "first_name": {
+                          "type": "string"
+                        },
+                        "last_name": {
+                          "type": "string"
+                        },
+                        "display_name": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "email": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "phone": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "mobile": {
+                          "type": "string"
+                        },
+                        "fax": {
+                          "type": "string"
+                        },
+                        "website": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "note": {
+                          "type": "string"
+                        },
+                        "kind": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "created_at": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "updated_at": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "custom_field_1": {
+                          "type": "string"
+                        },
+                        "custom_field_2": {
+                          "type": "string"
+                        },
+                        "custom_field_3": {
+                          "type": "string"
+                        },
+                        "custom_field_4": {
+                          "type": "string"
+                        },
+                        "business_license_number": {
+                          "type": "string"
+                        },
+                        "payment_terms": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "salesperson": {},
+                        "delivery_method": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "billing_address": {
+                          "type": "object",
+                          "required": [
+                            "id",
+                            "line1",
+                            "line2",
+                            "city",
+                            "country_subdivision_code",
+                            "postal_code",
+                            "country",
+                            "created_at",
+                            "updated_at"
+                          ],
+                          "properties": {
+                            "id": {
+                              "type": "number"
+                            },
+                            "line1": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "line2": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "line3": {
+                              "type": "string"
+                            },
+                            "line4": {
+                              "type": "string"
+                            },
+                            "line5": {
+                              "type": "string"
+                            },
+                            "city": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "country_subdivision_code": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "postal_code": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "country": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "created_at": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "updated_at": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          }
+                        },
+                        "shipping_address": {
+                          "type": "object",
+                          "required": [
+                            "id",
+                            "line1",
+                            "line2",
+                            "line3",
+                            "city",
+                            "country_subdivision_code",
+                            "postal_code",
+                            "country",
+                            "created_at",
+                            "updated_at"
+                          ],
+                          "properties": {
+                            "id": {
+                              "type": "number"
+                            },
+                            "line1": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "line2": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "line3": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "line4": {
+                              "type": "string"
+                            },
+                            "line5": {
+                              "type": "string"
+                            },
+                            "city": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "country_subdivision_code": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "postal_code": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "country": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "created_at": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "updated_at": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "order_date",
+                    "produce_date",
+                    "deliver_date",
+                    "po_number",
+                    "status",
+                    "delivery_method_id",
+                    "subtotal",
+                    "discount",
+                    "shipping",
+                    "total",
+                    "order_number",
+                    "payment_term_id",
+                    "created_at",
+                    "updated_at",
+                    "invoiced_at",
+                    "customer"
+                  ]
                 },
                 "examples": {
                   "Example": {
@@ -1084,7 +1392,33 @@
             }
           }
         },
-        "operationId": "List orders"
+        "operationId": "List orders",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "status",
+            "description": "Restricts the results to only orders with this status."
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "search_start_date",
+            "description": "Restrict the list to orders with an order date, ship on, produce on or deliver on date GREATER than this date"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "search_end_date",
+            "description": "Restrict the list to orders with an order date, ship on, produce on or deliver on date LESS THAN than this date"
+          }
+        ]
       },
       "x-last-modified": 1599932864561,
       "parameters": []
@@ -3873,6 +4207,14 @@
       "parameters": [
         {
           "schema": {
+            "type": "string"
+          },
+          "name": "inventory_id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "schema": {
             "type": "integer"
           },
           "name": "inventory_id",
@@ -3880,7 +4222,140 @@
           "required": true,
           "description": "inventory item record ID"
         }
-      ]
+      ],
+      "get": {
+        "summary": "List Active Stock",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "description": "",
+                  "minItems": 1,
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "id",
+                      "user_id",
+                      "inventory_id",
+                      "location_id",
+                      "lot_code",
+                      "status",
+                      "barcode",
+                      "details",
+                      "note",
+                      "count",
+                      "cost",
+                      "vendor_id",
+                      "expiration_date",
+                      "created_at",
+                      "updated_at",
+                      "base_count",
+                      "global_identifier",
+                      "organization_id"
+                    ],
+                    "properties": {
+                      "id": {
+                        "type": "number"
+                      },
+                      "user_id": {
+                        "type": "number"
+                      },
+                      "inventory_id": {
+                        "type": "number"
+                      },
+                      "location_id": {
+                        "type": "number"
+                      },
+                      "lot_code": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "status": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "barcode": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "details": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "note": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "count": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "cost": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "vendor_id": {
+                        "type": "number"
+                      },
+                      "expiration_date": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "created_at": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "updated_at": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "base_count": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "rate": {},
+                      "purchase_id": {},
+                      "metrc_package_id": {},
+                      "global_identifier": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "organization_id": {
+                        "type": "number"
+                      },
+                      "expiration_notified_at": {}
+                    }
+                  }
+                },
+                "examples": {}
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-inventory-inventory_id-stocks",
+        "description": "List the current active stock lots for the given inventory ID. ",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "location_name",
+            "description": "Restrict stock lots to just the locations with the closest name match to the given location name."
+          }
+        ]
+      }
     },
     "/shipments": {
       "get": {
@@ -4920,6 +5395,163 @@
         },
         "operationId": "Get delivery methods",
         "description": "Returns all the delivery methods currently defined."
+      }
+    },
+    "/inventory/{inventory_id}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "inventory_id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "get": {
+        "summary": "Get Inventory Record",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number"
+                    },
+                    "name": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "category_name": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "on_hand": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "unit_of_use": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "unit_of_purchase": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "purchase_conversion": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "property": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "sku": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "pull_strategy": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "reorder_point": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "lead_time": {
+                      "type": "number"
+                    },
+                    "retired": {
+                      "type": "boolean"
+                    },
+                    "waste_percentage": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "updated_at": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name",
+                    "category_name",
+                    "on_hand",
+                    "unit_of_use",
+                    "unit_of_purchase",
+                    "purchase_conversion",
+                    "property",
+                    "sku",
+                    "pull_strategy",
+                    "reorder_point",
+                    "lead_time",
+                    "retired",
+                    "waste_percentage",
+                    "created_at",
+                    "updated_at"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-inventory-inventory_id",
+        "description": "Returns the inventory record for the given ID"
+      }
+    },
+    "/inventory/{inventory_id}/active_stock_count": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "inventory_id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "get": {
+        "summary": "Get Active Stock Count",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "active_stock_count": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "unit_of_use": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "active_stock_count",
+                    "unit_of_use"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-inventory-inventory_id-active_stock_count",
+        "description": "Returns the total number of units of active stock on hand for the given inventory ID."
       }
     }
   },
